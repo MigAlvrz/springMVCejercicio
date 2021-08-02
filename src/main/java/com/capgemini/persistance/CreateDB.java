@@ -13,11 +13,10 @@ public class CreateDB extends DBConnection {
 	public void crearDB() {
 
 		try  {
-
-
+			//realiza la conexión con la DB a través de su clase padre.
 			Connection con = super.DBAccess();
 			Statement stmt = con.createStatement();
-			//TABLA tusers
+			//crea la tabla tusers siempre y cuando no exista
 			ResultSet tablaTUSERS = stmt.executeQuery("CREATE TABLE IF NOT EXISTS tusers(\r\n"
 					+ "id BIGINT IDENTITY ,\r\n"
 					+ "email VARCHAR(255),\r\n"
@@ -27,7 +26,7 @@ public class CreateDB extends DBConnection {
 					+ "status VARCHAR(255),\r\n"
 					+ "PRIMARY KEY (id)\r\n"
 					+ ");");
-			//TABLA tcategories
+			//crea la tabla tcategories siempre y cuando no exista.
 			ResultSet tablaTCATEGORIES = stmt.executeQuery("CREATE TABLE IF NOT EXISTS tcategories(\r\n"
 					+ "id BIGINT IDENTITY ,\r\n"
 					+ "name VARCHAR(255),\r\n"
@@ -35,7 +34,7 @@ public class CreateDB extends DBConnection {
 					+ "FOREIGN KEY(user_id) REFERENCES tusers(id) ON DELETE SET NULL,\r\n"
 					+ "PRIMARY KEY (id)\r\n"
 					+ ");");
-			//TABLA ttasks
+			//Crea la tabla TTASKS siempre y cuando no exista
 			ResultSet tablaTTASKS = stmt.executeQuery("CREATE TABLE IF NOT EXISTS ttasks(\r\n"
 					+ "id BIGINT IDENTITY ,\r\n"
 					+ "comments VARCHAR(255),\r\n"

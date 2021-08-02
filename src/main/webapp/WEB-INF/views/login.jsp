@@ -60,30 +60,53 @@ input {
 						<input type="text" class="form-control" placeholder="usuario">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
-				<form:form>
+							<form action="home" method="post">
 						</div>
 					</div>
 					<div class="input-group form-group">
 						<input type="password" class="form-control"
-							placeholder="contraseña">
+							placeholder="contraseÃ±a">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
 
 					</div>
+					<input type="submit"
+						class="btn btn-outline-secondary btn-lg btn-block" value="entrar">
 					<button type="button"
-						class="btn btn-outline-secondary btn-lg btn-block">enviar</button>
-					<button type="button"
-						class="btn btn-outline-secondary btn-lg btn-block">nuevo
+						class="btn btn-outline-secondary btn-lg btn-block"
+						data-toggle="modal" data-target="modalNewUser">nuevo
 						usuario</button>
-				</form:form>
-				
+					</form>
+
 
 
 				</div>
-				<div class="card-footer"></div>
-			</div>
-		</div>
+				<div class="card-footer">
 
-	</div>
+					<div class="modal fade" id="modalNewUser" tabindex="-1"
+						role="dialog" aria-labelledby="modalNewUser" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">...</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary">Save
+										changes</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
 </body>

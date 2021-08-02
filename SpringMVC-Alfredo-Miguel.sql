@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS tusers;
-CREATE TABLE tusers(
+
+CREATE TABLE IF NOT EXISTS tusers(
 id BIGINT IDENTITY ,
 email VARCHAR(255),
 isadmin BOOLEAN,
@@ -9,8 +9,8 @@ status VARCHAR(255),
 PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS tcategories;
-CREATE TABLE tcategories(
+
+CREATE TABLE IF NOT EXISTS tcategories(
 id BIGINT IDENTITY ,
 name VARCHAR(255),
 user_id INT,
@@ -18,8 +18,8 @@ FOREIGN KEY(user_id) REFERENCES tusers(id) ON DELETE SET NULL,
 PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS ttasks;
-CREATE TABLE ttasks(
+
+CREATE TABLE IF NOT EXISTS ttasks(
 id BIGINT IDENTITY ,
 comments VARCHAR(255),
 created DATE,

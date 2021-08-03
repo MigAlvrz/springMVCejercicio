@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.capgemini.persistance.CreateDB;
@@ -23,7 +24,9 @@ public class testMain {
 		password = in.next();
 		loginDB.login(username, password);
 		//mostrar usuarios sin contraseña
-		listUsersDB.listUsers();
+		ArrayList<String> arrayUsers = listUsersDB.listUsers();
+		arrayUsers.forEach(System.out::println);
+		
 	}
 
 }

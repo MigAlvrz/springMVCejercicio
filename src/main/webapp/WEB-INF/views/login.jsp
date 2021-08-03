@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -90,21 +90,21 @@ input {
 									</button>
 								</div>
 								<div class="modal-body">
-									<form:form method="post" action="" modelAtribute="user">
-										<label value="Nombre">
-										<form:input path="nombre">
-										<label value="constraseña">
-										<form:input path="contraseña">
+									<form:form method="post" action="home" modelAtribute="User">
+										<form:label path="userName">userName</form:label>
+										<form:input path="nombre"/>
+										<form:label path="password">Password</form:label>
+										<form:input path="password"/>
 
-									</form:form>
+								
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
 										data-dismiss="modal">Cancelar</button>
-									<button type="button" class="btn btn-primary">Nuevo usuario</button>
+									<input type="submit" value="Nuevo Usuario" class="btn btn-primary"/>
 								</div>
 							</div>
-
+							</form:form>
 						</div>
 					</div>
 				</div>

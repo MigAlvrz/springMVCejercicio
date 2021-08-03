@@ -1,6 +1,6 @@
 package com.capgemini.controllers;
 
-import java.lang.ProcessBuilder.Redirect;
+import java.lang.ProcessBuilder.Redirect; 
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
-
-	
-	
 
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView login() {

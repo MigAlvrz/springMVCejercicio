@@ -46,6 +46,7 @@ public class listUsersDB extends DBConnection{
 				user.add(statusDB);
 
 			}
+			con.close();
 			return user;
 		}
 		catch (Exception e) {

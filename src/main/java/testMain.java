@@ -26,13 +26,25 @@ public class testMain {
 		password = in.next();
 		loginDB.login(username, password);
 		//mostrar usuarios sin contraseña
-		ArrayList<String> arrayUsers = listUsersDB.listUsers();
-		arrayUsers.forEach(System.out::println);
-		
+		ArrayList<String> arrayListUsers = listUsersDB.listUsers();
+		arrayListUsers.forEach(System.out::println);
+		//cambiar estado usuarios
 		updateStatusDB.UpdateStatusToDisabled(0);
-		
-		
-		
+		//mostrar usuarios ordenados por login
+		System.out.println("-------------------------------");
+		System.out.println("order by Login");
+		ArrayList<String> arrayListUsersByLogin = listUsersDB.listUsersOrderByLogin();
+		arrayListUsersByLogin.forEach(System.out::println);
+		//mostrar usuarios ordenados por mail
+		System.out.println("-------------------------------");
+		System.out.println("order by email");
+		ArrayList<String> arrayListUsersByEmail = listUsersDB.listUsersOrderByEmail();
+		arrayListUsersByEmail.forEach(System.out::println);
+		//mostrar usuarios ordenados por status
+		System.out.println("-------------------------------");
+		System.out.println("order by status");
+		ArrayList<String> arrayListUsersByStatus = listUsersDB.listUsersOrderByStatus();
+		arrayListUsersByLogin.forEach(System.out::println);
 	}
 
 }

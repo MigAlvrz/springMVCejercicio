@@ -14,6 +14,8 @@ public class LoginController {
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String login() {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("title", "Get Tasks done!");
+		mv.addObject("ErrorMessage", "");
 		mv.setViewName("login");
 		return "login";
 	}

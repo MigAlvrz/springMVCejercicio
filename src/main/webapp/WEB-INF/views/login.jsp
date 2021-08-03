@@ -91,10 +91,7 @@ input {
 								</div>
 								<div class="modal-body">
 									<form:form method="post" action="home" modelAtribute="User">
-										<form:label path="userName">userName</form:label>
-										<form:input path="nombre"/>
-										<form:label path="password">Password</form:label>
-										<form:input path="password"/>
+										<p>test para ver que todo funciona</p>
 
 								
 								</div>

@@ -12,11 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
 	@RequestMapping(value="/", method = RequestMethod.GET)
-	public ModelAndView login() {
+	public String login() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("login");
-		return mv;
-		
+		return "login";
 	}
 	
 	@RequestMapping(value="/", method = RequestMethod.POST)

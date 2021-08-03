@@ -3,9 +3,13 @@ package com.capgemini.persistance;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class listUsersDB extends DBConnection{
-	public void listUsers(){
+	public ArrayList<String> listUsers(){
+		//declaramos un arraylist de usuarios
+		ArrayList <String> user = new ArrayList<String>();
 		//En esta clase mostramos los usuarios de la base de datos exceptuando su contraseña.
 		try {
 			Connection con = super.DBAccess();
@@ -18,27 +22,36 @@ public class listUsersDB extends DBConnection{
 				Boolean isAdminDB = rs.getBoolean("isadmin");
 				String loginDB = rs.getString("login");
 				String statusDB = rs.getString("status");
-				System.out.println("------------------");
-				System.out.print("id: ");
-				System.out.println(idDB);
-				System.out.print("email: ");
-				System.out.println(emailDB);
-				System.out.print("¿es administrador? ");
+				String BooleanResultAdmin;
+				//				System.out.println("------------------");
+				//				System.out.print("id: ");
+				//				System.out.println(idDB);
+				//				System.out.print("email: ");
+				//				System.out.println(emailDB);
+				//				System.out.print("¿es administrador? ");
 				if(isAdminDB == true) {
-					System.out.println("si");
+					BooleanResultAdmin= "si es administrador";
 				}
 				else{
-					System.out.println("no");
+					BooleanResultAdmin= "no es administrador";
 				}
-				System.out.print("Nombre Login: ");
-				System.out.println(loginDB);
-				System.out.println("estado: ");
-				System.out.println(statusDB);
+				//				System.out.print("Nombre Login: ");
+				//				System.out.println(loginDB);
+				//				System.out.println("estado: ");
+				//				System.out.println(statusDB);
+				user.add(idDB);
+				user.add(emailDB);
+				user.add(BooleanResultAdmin);
+				user.add(loginDB);
+				user.add(statusDB);
+
 			}
+			return user;
 		}
 		catch (Exception e) {
 			System.out.println("listUsers failed.");
 			e.printStackTrace();
 		}
+		return null;
 	}
 }

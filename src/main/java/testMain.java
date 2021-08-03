@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import com.capgemini.persistance.CreateDB;
 import com.capgemini.persistance.LoginDB;
+import com.capgemini.persistance.UpdateStatusAdminDB;
 import com.capgemini.persistance.listUsersDB;
 
 public class testMain {
@@ -11,6 +12,7 @@ public class testMain {
 		// TODO Auto-generated method stub
 		CreateDB createDB = new CreateDB();
 		LoginDB loginDB = new LoginDB();
+		UpdateStatusAdminDB updateStatusDB = new UpdateStatusAdminDB();
 		listUsersDB listUsersDB = new listUsersDB();
 		System.out.println("Creando base de datos...");
 		createDB.crearDB();
@@ -26,6 +28,10 @@ public class testMain {
 		//mostrar usuarios sin contraseña
 		ArrayList<String> arrayUsers = listUsersDB.listUsers();
 		arrayUsers.forEach(System.out::println);
+		
+		updateStatusDB.UpdateStatusToDisabled(0);
+		
+		
 		
 	}
 

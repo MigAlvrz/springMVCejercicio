@@ -16,6 +16,7 @@ public class testMain {
 		LoginDB loginDB = new LoginDB();
 		UpdateStatusAdminDB updateStatusDB = new UpdateStatusAdminDB();
 		listUsersDB listUsersDB = new listUsersDB();
+
 		deleteUserDB deleteUserDB = new deleteUserDB();
 		insertNewUserDB insertNewUser = new insertNewUserDB();
 
@@ -28,13 +29,13 @@ public class testMain {
 		//		Scanner in = new Scanner(System.in);
 		//		System.out.println("introduzca nombre login");
 		//		username = in.next();
-		//		System.out.println("introduzca Contraseña");
+		//		System.out.println("introduzca Contraseï¿½a");
 		//		password = in.next();
 		//		loginDB.login(username, password);
 
 		//		------------------------------------------------------------------------------------------------------------------------------------------------
 
-		//		//mostrar usuarios sin contraseña
+		//		//mostrar usuarios sin contraseï¿½a
 		//		ArrayList<String> arrayListUsers = listUsersDB.listUsers();
 		//		arrayListUsers.forEach(System.out::println);
 		//		

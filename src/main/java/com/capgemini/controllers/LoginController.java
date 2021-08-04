@@ -22,7 +22,8 @@ public class LoginController {
 	
 	@Autowired @Qualifier("UserDaoImpl")
 	private UserDao userDao;
-	
+
+//  al comentar esto, funciona
 //	@Autowired
 //	private UserRepository userRepository;
 
@@ -34,7 +35,7 @@ public class LoginController {
 		mv.addObject("ErrorMessage", "");
 		mv.setViewName("login");
 		return mv;
-	}
+	}  
 	
 	@RequestMapping(value="/", method = RequestMethod.POST)
 	public ModelAndView home(Model model) {

@@ -49,7 +49,7 @@ public class testMain {
 		arrayListUsersByLogin.forEach(System.out::println);
 		
 		//borrar usuario DB
-		deleteUserDB.deleteUser(6);
+		deleteUserDB.deleteUser(1);
 	}
 
 }

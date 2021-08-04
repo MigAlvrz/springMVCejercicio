@@ -74,7 +74,7 @@ input {
 						class="btn btn-outline-secondary btn-lg btn-block" value="entrar">
 					<button type="button"
 						class="btn btn-outline-secondary btn-lg btn-block"
-						data-toggle="modal" data-target="#exampleModal">nuevo usuario</button>
+						data-toggle="modal" data-target="#modalNewUser">nuevo usuario</button>
 					</form>
 
 					<div class="modal fade" id="modalNewUser" tabindex="-1"

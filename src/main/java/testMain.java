@@ -4,6 +4,7 @@ import java.util.Scanner;
 import com.capgemini.persistance.CreateDB;
 import com.capgemini.persistance.LoginDB;
 import com.capgemini.persistance.UpdateStatusAdminDB;
+import com.capgemini.persistance.deleteUserDB;
 import com.capgemini.persistance.listUsersDB;
 
 public class testMain {
@@ -14,6 +15,7 @@ public class testMain {
 		LoginDB loginDB = new LoginDB();
 		UpdateStatusAdminDB updateStatusDB = new UpdateStatusAdminDB();
 		listUsersDB listUsersDB = new listUsersDB();
+		deleteUserDB deleteUserDB = new deleteUserDB();
 		System.out.println("Creando base de datos...");
 		createDB.crearDB();
 		//login base de datos
@@ -45,6 +47,9 @@ public class testMain {
 		System.out.println("order by status");
 		ArrayList<String> arrayListUsersByStatus = listUsersDB.listUsersOrderByStatus();
 		arrayListUsersByLogin.forEach(System.out::println);
+		
+		//borrar usuario DB
+		deleteUserDB.deleteUser(6);
 	}
 
 }

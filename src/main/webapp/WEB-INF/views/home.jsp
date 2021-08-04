@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="col-6 h-100 flex-fill derecha">
-    
+                <h1>${activeUser.getLogin()}</h1>
             </div>
             <div class="col-1  flex-fill opciones">
             <form action="user" method="post">

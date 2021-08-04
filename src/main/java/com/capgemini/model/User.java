@@ -26,6 +26,7 @@ public class User {
 		this.login = login;
 		this.email = email;
 		this.password = password;
+		this.isAdmin = false;
 	}
 
 

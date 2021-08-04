@@ -56,15 +56,16 @@ input {
 					<h3>${titulo}</h3>
 				</div>
 				<div class="card-body">
+				<form:form action="login" method="post" modelAtribute="User">
 					<div class="input-group-prepend">
-						<input type="text" class="form-control" placeholder="usuario">
+						<input type="text" class="form-control" placeholder="usuario" name="user">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
-					<form action="home" method="post">
+					
 						</div>
 					</div>
 					<div class="input-group form-group">
-						<input type="password" class="form-control"
+						<input type="password" class="form-control" name="contra"
 							placeholder="contraseña">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -75,7 +76,7 @@ input {
 					<button type="button"
 						class="btn btn-outline-secondary btn-lg btn-block"
 						data-toggle="modal" data-target="#modalNewUser">nuevo usuario</button>
-					</form>
+					</form:form>
 
 					
 

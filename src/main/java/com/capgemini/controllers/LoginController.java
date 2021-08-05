@@ -26,14 +26,11 @@ public class LoginController {
 	
 	@Autowired @Qualifier("UserDaoImpl")
 	private UserDao userDao;
-<<<<<<< HEAD
-
+	
 //  al comentar esto, funciona
 //	@Autowired
 //	private UserRepository userRepository;
 
-=======
->>>>>>> newUserBranch
 
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)

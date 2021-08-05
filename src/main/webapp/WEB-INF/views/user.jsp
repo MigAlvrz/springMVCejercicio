@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container mt-5 mb-3">
+  <div class="container mt-5 mb-3">
         <div class="row">
             <div class="col">
                 <div class="card p-3 mb-2">
@@ -26,12 +26,13 @@
                         <div class=""> <span><input type="submit" class="btn btn-outline-secondary btn-sm" value="modificar" data-toggle="modal" data-target="#modalNewUser"></span> </div>
                     </div>
                     <div class="mt-2">
-                        <h3 class="heading">Tareas agregadas: 99</h3>
-                        <h3 class="heading">Tareas cumplidas: 99</h3>
+                        <h3 class="heading">Tareas agregadas:<span class="offset-1"> 99</span></h3>
+                        <h3 class="heading">Tareas cumplidas:<span class="offset-1"> 99</span></h3>
+                        <h3 class="heading">Tareas pendientes:<span class="offset-1">99</span></h3>
                     </div>
                     <div class="mt-4"></div>
                     <form action="home" method="post">
-                        <input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="volver">
+                        <input type="submit" class="btn btn-outline-secondary col-3" value="volver">
                     </form>
                 </div>
             </div>

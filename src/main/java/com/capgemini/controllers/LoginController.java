@@ -49,7 +49,6 @@ public class LoginController {
 		User activeUser = null;
 		List<User> users = new ArrayList<>();
 		try {
-			//activeUser = userDao.getUsers().stream().filter((usuario) -> usuario.getLogin().equals(user) && usuario.getPassword().equals(contra)).findAny().get();
 			users = userDao.getUsers();
 			System.out.println(users);
 			for (User usuario : users) {

@@ -28,6 +28,18 @@
              background-color: #a3b2b8;
         }
         
+        .opciones p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .opciones input {
+            margin-top: 10px;
+            font-weight: bolder;
+            background-color: whitesmoke;
+            color: black;
+        }
+
 
         .flex-fill {
           flex:1 1 auto;
@@ -42,21 +54,21 @@
                     <table class="table table-bordered table-hover">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col-1">tareas!</th>
+                               <th scope="col-1" ><span class="col-1">tareas!</span> <input type="submit" class ="btn btn-outline-secondary col-1 offset-10" value="Nueva Tarea"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td scope="col">
                                     <div class="row">
-                                        <div class="col-3">Nombre de la tarea</div>
+                                        <div class="col-3">${task.getTitle()}</div>
                                         <div class="col-4">
-                                            <div class="row">Iniciada: ${fechaInicio}</div>
-                                            <div class="row">Prevista para: ${fechaPrevista}</div>
-                                            <div class="row">Finalizada: ${fechaFinal}</div>
+                                            <div class="row">Iniciada: ${task.getCreated()}</div>
+                                            <div class="row">Prevista para: ${task.getPlanned()}</div>
+                                            <div class="row">Finalizada: ${task.getFinished()}</div>
                                         </div>  
                                         <div class="col-5">
-                                            <div class="row">comentario 1</div>
+                                            <div class="row">${task.getComments()}</div> 
                                             
                                         </div>
                                     </div>
@@ -67,6 +79,8 @@
                 </div>
             </div>
             <div class="col-1  flex-fill opciones">
+             <p>${activeUser.getLogin()}</p>
+
             <form action="user" method="post">
                 <input type="submit" class ="btn btn-outline-light" value="usuario">
             </form>

@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="ISO-8859-1">
     <title>Insert title here</title>
@@ -9,18 +10,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        .card {
+            border: 1px solid;
+            padding: 10px;
+            box-shadow: 5px 10px 18px #888888;
+        }
+    </style>
+
 </head>
 
 <body>
-  <div class="container mt-5 mb-3">
+    <div class="container mt-5 mb-3">
         <div class="row">
             <div class="col">
                 <div class="card p-3 mb-2">
                     <div class="d-flex justify-content-between">
                         <div class="d-flex flex-row align-items-center">
                             <div class="icon">
-                                <h1 class="display-4 heading"> Usuario </h1>
-                                <h6 class="text-muted"> email@email.com </h6>
+                                <h1 class="display-4 heading ">Usuario</h1>
+                                <h6 class="text-muted heading offset-1">email@email.com</h6>
                             </div>
                         </div>
                         <div class=""> <span><input type="submit" class="btn btn-outline-secondary btn-sm" value="modificar" data-toggle="modal" data-target="#modalNewUser"></span> </div>

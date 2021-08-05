@@ -105,9 +105,9 @@ input {
 						<form:form method="post" action="newUser" modelAtribute="User">
 						<div class="modal-body">
 							<input type="text" class="form-control" placeholder="usuario" name="username">
-							<input type="email" class="form-control" placeholder="email" name="email">
-							<input type="email" class="form-control" placeholder="confirmar email">
-							<input type="password" class="form-control" placeholder="contraseña" name="contra">
+							<input type="email" class="form-control mt-4"" placeholder="email" name="email">
+							<input type="email" class="form-control mt-4"" placeholder="confirmar email">
+							<input type="password" class="form-control mt-4"" placeholder="contraseña" name="contra">
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"

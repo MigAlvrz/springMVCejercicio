@@ -1,4 +1,4 @@
-package com.capgemini.persistance;
+ package com.capgemini.persistance;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

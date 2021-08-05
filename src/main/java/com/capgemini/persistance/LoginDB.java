@@ -1,4 +1,4 @@
-package com.capgemini.persistance;
+ package com.capgemini.persistance;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class LoginDB extends DBConnection {
 	public void login(String username, String password) {
 		try {
-			//realiza la conexión con la DB a través de su clase padre.
+			//realiza la conexiï¿½n con la DB a travï¿½s de su clase padre.
 			Connection con;
 			con = super.DBAccess();
 			Statement stmt = con.createStatement();

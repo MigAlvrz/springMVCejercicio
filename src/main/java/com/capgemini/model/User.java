@@ -20,13 +20,19 @@ public class User {
 	private boolean isAdmin;
 
 	
+	public User() {
+		super();
+	}
+	
 	public User(String login, String email, String password) {
 		super();
 
 		this.login = login;
 		this.email = email;
 		this.password = password;
+		this.status = UserStatus.ENABLED;
 		this.isAdmin = false;
+		
 	}
 
 

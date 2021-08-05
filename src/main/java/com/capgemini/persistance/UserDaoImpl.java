@@ -34,7 +34,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> getUsers() {
-		String query = "FROM TUSERS";
+		String query = "from User";
 		return em.createQuery(query).getResultList();
 	}
 

@@ -1,6 +1,8 @@
 package com.capgemini.controllers;
 
 import java.lang.ProcessBuilder.Redirect;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -39,17 +41,42 @@ public class LoginController {
 	public ModelAndView home(@RequestParam String user, @RequestParam String contra ,Model model) {
 		
 		//Aqui conectar a la base de datos y que devuelva un usuario. 
-		String userContra = user+" "+contra;
-		System.out.println(userContra);
-		User NewUser = new User("USER","CONTRA","EMAIL");
-	 // return new ModelAndView("redirecto:/home");
-		
+		User activeUser = null;
+		List<User> users = new ArrayList<>();
+		try {
+			//activeUser = userDao.getUsers().stream().filter((usuario) -> usuario.getLogin().equals(user) && usuario.getPassword().equals(contra)).findAny().get();
+			users = userDao.getUsers();
+			System.out.println(users);
+			for (User usuario : users) {
+				if (usuario.getLogin().equals(user)) {
+					if(usuario.getPassword().equals(contra))
+						activeUser = usuario;
+				}
+			}
+			if(users.size()==0)
+				System.out.println("users is null or has 0 entries");
+		} catch (Exception e) {
+			activeUser = null;
+			System.out.println("the active user could not be loaded because: ");
+			e.printStackTrace();
+			if(users==null)
+				System.out.println("users is null");
+		}
+		System.out.println(activeUser);
+		if(activeUser != null) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("titulo", "Getting Tasks Done!");
-		mv.addObject("ErrorMessage", userContra);
-		mv.addObject("activeUser", NewUser);
+		mv.addObject("ErrorMessage", "");
+		mv.addObject("activeUser", activeUser);
 		mv.setViewName("home");
 		return mv;
+		} else {
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("titulo", "Getting Tasks Done!");
+			mv.addObject("ErrorMessage", "Usuario o contraseña incorrectos");
+			mv.setViewName("login");
+			return mv;
+		}
 	}
 	
 	@RequestMapping(value="/newUser", method = RequestMethod.POST)

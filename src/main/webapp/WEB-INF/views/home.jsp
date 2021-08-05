@@ -25,7 +25,7 @@
         }
 
         .opciones {
-            background-color: red;
+             background-color: #a3b2b8;
         }
         
 
@@ -37,56 +37,46 @@
 <body>
     <div class="container-fluid d-flex">
         <div class="row flex-fill">
-            <div class="col-5 h-100 izquierda">
+            <div class="col-11 izquierda">
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col-1">#</th>
-                                <th scope="col-2">tarea</th>
-                                <th scope="col-2">fecha</th>
+                                <th scope="col-1">tareas!</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="row">1</td>
-                                <td>test</td>
-                                <td>1-2-3456</td>     
+                                <td scope="col">
+                                    <div class="row">
+                                        <div class="col-3">Nombre de la tarea</div>
+                                        <div class="col-4">
+                                            <div class="row">Iniciada: ${fechaInicio}</div>
+                                            <div class="row">Prevista para: ${fechaPrevista}</div>
+                                            <div class="row">Finalizada: ${fechaFinal}</div>
+                                        </div>  
+                                        <div class="col-5">
+                                            <div class="row">comentario 1</div>
+                                            
+                                        </div>
+                                    </div>
+                                </td>
                             </tr> 
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>test</td>
-                                <td>1-2-3456</td>     
-                            </tr> 
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>test</td>
-                                <td>1-2-3456</td>     
-                            </tr> 
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>test</td>
-                                <td>1-2-3456</td>     
-                            </tr> 
-    
-                               
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="col-6 h-100 flex-fill derecha">
-                <h1>${activeUser.getLogin()}</h1>
-            </div>
             <div class="col-1  flex-fill opciones">
             <form action="user" method="post">
-                <input type="submit" class ="btn btn-outline-secondary" value="usuario">
+                <input type="submit" class ="btn btn-outline-light" value="usuario">
             </form>
               <form action="admin" method="post">
-                <input type="submit" class ="btn btn-outline-secondary" value="admin">
+                <input type="submit" class ="btn btn-outline-light" value="admin">
             </form>
             </div>
 
         </div>
     </div>
 </body>
+</html>
 </html>

@@ -56,15 +56,20 @@ input {
 					<h3>${titulo}</h3>
 				</div>
 				<div class="card-body">
+				<form:form action="login" method="post" modelAtribute="User">
 					<div class="input-group-prepend">
-						<input type="text" class="form-control" placeholder="usuario">
+						<input type="text" class="form-control" placeholder="usuario" name="user">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
+<<<<<<< HEAD
 							<form action="home" method="post">
+=======
+					
+>>>>>>> 5c745198cf642778843adcfb04484c004b348942
 						</div>
 					</div>
 					<div class="input-group form-group">
-						<input type="password" class="form-control"
+						<input type="password" class="form-control" name="contra"
 							placeholder="contraseña">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -74,29 +79,16 @@ input {
 						class="btn btn-outline-secondary btn-lg btn-block" value="entrar">
 					<button type="button"
 						class="btn btn-outline-secondary btn-lg btn-block"
+<<<<<<< HEAD
 						data-toggle="modal" data-target="#modalNewUser">nuevo
 						usuario</button>
 					</form>
+=======
+						data-toggle="modal" data-target="#modalNewUser">nuevo usuario</button>
+					</form:form>
+>>>>>>> 5c745198cf642778843adcfb04484c004b348942
 
-					<div class="modal fade" id="modalNewUser" tabindex="-1"
-						role="dialog" aria-labelledby="modalNewUser" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">...</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Save
-										changes</button>
-								</div>
-							</div>
+					
 
 
 						</div>
@@ -108,6 +100,7 @@ input {
 
 
 
+<<<<<<< HEAD
 					<!-- Modal -->
 					<div class="modal fade" id="modalNewUser" tabindex="-1"
 						role="dialog" aria-labelledby="modalNewUser" aria-hidden="true">
@@ -134,6 +127,32 @@ input {
 									</div>
 							</div>
 							</form:form>
+=======
+			<!-- Modal -->
+			<div class="modal fade" id="modalNewUser" tabindex="-1" role="dialog"
+				aria-labelledby="modalNewUser" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Nuevo usuario</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<form:form method="post" action="newUser" modelAtribute="User">
+						<div class="modal-body">
+							<input type="text" class="form-control" placeholder="usuario" name="username">
+							<input type="email" class="form-control" placeholder="email" name="email">
+							<input type="email" class="form-control" placeholder="confirmar email">
+							<input type="password" class="form-control" placeholder="contraseña" name="contra">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">Cancelar</button>
+							<input type="submit" value="Nuevo Usuario"
+								class="btn btn-primary" />
+>>>>>>> 5c745198cf642778843adcfb04484c004b348942
 						</div>
 					</div>
 

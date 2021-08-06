@@ -1,5 +1,8 @@
 package com.capgemini.controllers;
 
+import java.util.ArrayList; 
+import com.capgemini.model.Task;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value ="/home")
 public class HomeController {
+	
+	private ArrayList<Task> tareas = new ArrayList<>();
 
 	@RequestMapping(value="", method = RequestMethod.POST)
 	public ModelAndView home() {

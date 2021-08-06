@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +45,12 @@
         .flex-fill {
           flex:1 1 auto;
         }
+        
+        .table {
+        	border: 1px solid;
+            padding: 10px;
+            box-shadow: 5px 10px 18px #888888;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +65,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <c:forEach var="task" items="${tareas}">
                             <tr>
                                 <td scope="col">
                                     <div class="row">
@@ -74,6 +82,7 @@
                                     </div>
                                 </td>
                             </tr> 
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

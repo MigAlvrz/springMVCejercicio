@@ -40,7 +40,7 @@ public class ListTasksDB extends DBConnection{
 		}
 		return null;
 	}
-	
+
 	/*
 	 *  En esta metodo mostramos las tareas de la base de datos cumpliendo con los parametros de hoy.
 	 *  Estos parámetros son:
@@ -70,6 +70,37 @@ public class ListTasksDB extends DBConnection{
 			//cerramos la conexión
 			con.close();
 			return hoy;
+		}
+		catch (Exception e) {
+			System.out.println("listTasks failed.");
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public ArrayList<String> listSemana(int UserID){
+		ArrayList <String> semana = new ArrayList<String>();
+		try {
+			//conexion con la BD
+			Connection con = super.DBAccess();
+			Statement stmt = con.createStatement();
+			//realiza la consulta
+			ResultSet rs = stmt.executeQuery("SELECT t.comments, t.created, t.finished, t.planned, t.title, t.category_id, t.user_id, c.id,  c.name FROM ttasks t, tcategories c WHERE (planned <= current_date + (INTERVAL '7' DAY)) AND (user_id = 2) AND c.id = t.category_id ORDER BY planned ASC, name");
+			while(rs.next()) {
+				String commentsDB = rs.getString("comments");
+				String createdDB = rs.getString("created");
+				String plannedDB = rs.getString("planned");
+				String titleDB = rs.getString("title");
+				String categoria = rs.getString("name");
+				semana.add(titleDB);
+				semana.add(createdDB);
+				semana.add(plannedDB);
+				semana.add(commentsDB);
+				semana.add(categoria);
+			}
+			//cerramos la conexión
+			con.close();
+			return semana;
 		}
 		catch (Exception e) {
 			System.out.println("listTasks failed.");

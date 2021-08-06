@@ -81,12 +81,15 @@ public class testMain {
 		//-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 		//test lista tareas
-		System.out.println("inbox");
-				ArrayList<String> arrayListInbox= listTasks.listInbox(2);
-				arrayListInbox.forEach(System.out::println);
-		System.out.println("hoy");
-				ArrayList<String> arrayListHoy = listTasks.listHoy(2);
-				arrayListHoy.forEach(System.out::println);
+//		System.out.println("inbox");
+//			ArrayList<String> arrayListInbox= listTasks.listInbox(2);
+//			arrayListInbox.forEach(System.out::println);
+//		System.out.println("hoy");
+//			ArrayList<String> arrayListHoy = listTasks.listHoy(2);
+//			arrayListHoy.forEach(System.out::println);
+		System.out.println("semana");
+			ArrayList<String> arrayListSemana = listTasks.listSemana(2);
+			arrayListSemana.forEach(System.out::println);
 	}
 
 }

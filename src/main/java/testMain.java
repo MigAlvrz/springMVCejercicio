@@ -7,6 +7,7 @@ import com.capgemini.persistance.UpdateStatusAdminDB;
 import com.capgemini.persistance.deleteUserDB;
 import com.capgemini.persistance.insertNewUserDB;
 import com.capgemini.persistance.listUsersDB;
+import com.capgemini.persistance.ListTasksDB;
 
 public class testMain {
 
@@ -19,26 +20,27 @@ public class testMain {
 
 		deleteUserDB deleteUserDB = new deleteUserDB();
 		insertNewUserDB insertNewUser = new insertNewUserDB();
+		ListTasksDB listTasks = new ListTasksDB();
 
 		//		System.out.println("Creando base de datos...");
 		//		createDB.crearDB();
 		//		--------------------------------------------------------------------------------------------------------------------------------------------------
 		//		//login base de datos
-		//		String username;
-		//		String password;
-		//		Scanner in = new Scanner(System.in);
-		//		System.out.println("introduzca nombre login");
-		//		username = in.next();
-		//		System.out.println("introduzca Contrase�a");
-		//		password = in.next();
-		//		loginDB.login(username, password);
+		//				String username;
+		//				String password;
+		//				Scanner in = new Scanner(System.in);
+		//				System.out.println("introduzca nombre login");
+		//				username = in.next();
+		//				System.out.println("introduzca Contrase�a");
+		//				password = in.next();
+		//				loginDB.login(username, password);
 
 		//		------------------------------------------------------------------------------------------------------------------------------------------------
 
-		//		//mostrar usuarios sin contrase�a
-		//		ArrayList<String> arrayListUsers = listUsersDB.listUsers();
-		//		arrayListUsers.forEach(System.out::println);
-		//		
+		//				//mostrar usuarios sin contrase�a
+		//				ArrayList<String> arrayListUsers = listUsersDB.listUsers();
+		//			arrayListUsers.forEach(System.out::println);
+
 		//		------------------------------------------------------------------------------------------------------------------------------------------------
 		//
 		//cambiar estado usuarios
@@ -70,11 +72,17 @@ public class testMain {
 		//		------------------------------------------------------------------------------------------------------------------------------------------------
 
 		//test insert new user
-		String login = "";
-		String email= "xddd@jajaj.com";
-		String password = "xd";
-		insertNewUser.insertNewUser(login , email, password);
-		
+		//		String login = "";
+		//		String email= "xddd@jajaj.com";
+		//		String password = "xd";
+		//		insertNewUser.insertNewUser(login , email, password);
+		//
+
+		//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+		//test lista tareas
+				ArrayList<String> arrayListInbox= listTasks.listInbox(2);
+				arrayListInbox.forEach(System.out::println);
 	}
 
 }

@@ -4,6 +4,8 @@ import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.capgemini.model.User;
+import com.capgemini.model.UserBus;
 import com.capgemini.persistance.*;
 
 
@@ -48,34 +51,28 @@ public class LoginController {
 		//Aqui conectar a la base de datos y que devuelva un usuario. 
 		User activeUser = null;
 		List<User> users = new ArrayList<>();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("titulo", "Getting Tasks Done!");
 		try {
 			users = userDao.getUsers();
-			System.out.println(users);
 			for (User usuario : users) {
 				if (usuario.getLogin().equals(user)) {
 					if(usuario.getPassword().equals(contra))
 						activeUser = usuario;
 				}
 			}
-			if(users.size()==0)
-				System.out.println("users is null or has 0 entries");
 		} catch (Exception e) {
 			activeUser = null;
 			System.out.println("the active user could not be loaded because: ");
 			e.printStackTrace();
-			if(users==null)
-				System.out.println("users is null");
 		}
-		System.out.println(activeUser);
 		if(activeUser != null) {
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("titulo", "Getting Tasks Done!");
+		UserBus.setUser(activeUser);	
 		mv.addObject("ErrorMessage", "");
 		mv.addObject("activeUser", activeUser);
 		mv.setViewName("home");
 		return mv;
 		} else {
-			ModelAndView mv = new ModelAndView();
 			mv.addObject("titulo", "Getting Tasks Done!");
 			mv.addObject("ErrorMessage", "Usuario o contraseña incorrectos");
 			mv.setViewName("login");

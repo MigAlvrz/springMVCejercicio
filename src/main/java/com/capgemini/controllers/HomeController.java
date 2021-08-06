@@ -64,7 +64,10 @@ public class HomeController {
 	
 	@RequestMapping(value="/admin", method = RequestMethod.POST)
 	public ModelAndView admin(Model model) {
-		return new ModelAndView("redirecto:/admin");
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin");
+		return mv;
 	}
 	
 }

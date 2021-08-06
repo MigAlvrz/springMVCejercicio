@@ -29,7 +29,7 @@
                         <div class="d-flex flex-row align-items-center">
                             <div class="icon">
                                 <h1 class="display-4 heading ">${activeUser.getLogin()}</h1>
-                                <h6 class="text-muted heading col-4 offset-1">${activeUser.getEmail()}</h6>
+                                <h6 class="text-muted heading">${activeUser.getEmail()}</h6>
                             </div>
                         </div>
                         <div class=""> <span><input type="submit" class="btn btn-outline-secondary btn-sm" value="modificar" data-toggle="modal" data-target="#modalNewUser"></span> </div>

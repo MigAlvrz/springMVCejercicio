@@ -21,7 +21,28 @@
 	<div class="container">
 		<div class="row">
 			<div class="Col">
-				<h1>Esta es la página que solo verá el admin</h1>
+				<h1>Users</h1>
+				<table class="table">
+  					<thead>
+    					<tr>
+						<th scope="col">Usuario</th>
+						<th scope="col">Email</th>
+						<th scope="col">Estado</th>
+						<th scope="col">Admin</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="user" items="${Users}">
+							<tr>
+								<th scope="row">${user.getLogin()}</th>
+								<td>${user.getLogin()}</td>
+								<td>${user.getStatus()}</td>
+								<td>${user.getLogin() ? "si" : "no"}</td>
+								<td><input class="btn btn-outline-secondary btn-sm" value="modificar" data-toggle="modal" data-target="#modalNewUser"></td>
+							</tr>		
+						</c:forEach>
+					</tbody>
+				</table>	
 				<form action="home" method="post">
 					<input type="submit"
 						class="btn btn-outline-secondary btn-lg btn-block" value="volver">

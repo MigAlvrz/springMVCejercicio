@@ -19,7 +19,7 @@ public class UserController {
 	
 	@RequestMapping(value="/", method = RequestMethod.POST)
 	public ModelAndView home(Model model) {			
-		return new ModelAndView("redirecto:/home/");
+		return new ModelAndView("redirecto:/");
 	}
 
 }

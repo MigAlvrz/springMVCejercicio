@@ -27,3 +27,4 @@ planned DATE,
 FOREIGN KEY(category_id) REFERENCES tcategories(id) ON DELETE SET NULL,
 FOREIGN KEY(user_id) REFERENCES tusers(id) ON DELETE SET NULL
 );
+

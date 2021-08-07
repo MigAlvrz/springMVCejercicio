@@ -94,7 +94,7 @@
 			<div class="col-1  flex-fill opciones">
 				<form:form action="home/activeUser" method="post" modelAtribute="User">
 
-					<p name="user">${activeUser.getLogin()}</p>
+					<p>${activeUser.getLogin()}</p>
 
 
 					<input type="submit" class="btn btn-outline-light" value="usuario">

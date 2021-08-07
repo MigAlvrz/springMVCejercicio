@@ -40,7 +40,7 @@
                         <h3 class="heading">Tareas pendientes:<span class="offset-1">99</span></h3>
                     </div>
                     <div class="mt-4"></div>
-                    <form action="home" method="post">
+                    <form action="/user/home" method="post">
                         <input type="submit" class="btn btn-outline-secondary col-3" value="volver">
                     </form>
                 </div>

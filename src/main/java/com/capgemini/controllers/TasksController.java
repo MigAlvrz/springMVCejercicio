@@ -14,16 +14,26 @@ import com.capgemini.persistance.ListTasksDB;
 @Controller
 @RequestMapping(value ="/tasks")
 public class TasksController {
-	
+
 	@RequestMapping(value="", method = RequestMethod.GET)
 	public ModelAndView tasks(Model model) {
-		System.out.println("test1");
 		ListTasksDB listTasks = new ListTasksDB();
+		
 		List<Task> tasksInbox = listTasks.listInbox(2);
 		model.addAttribute("tasksInbox", tasksInbox);
+
+		List<Task> tasksHoy = listTasks.listHoy(2);
+		model.addAttribute("tasksHoy", tasksHoy);
+
+		List<Task> tasksSemana = listTasks.listSemana(2);
+		model.addAttribute("tasksSemana", tasksSemana);
+
+		List<Task> tasksCategoria = listTasks.listTareasCategorias(2, "categoria1");
+		model.addAttribute("tasksCategoria", tasksCategoria);
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("tasks");
 		return mv;
 	}
-	
+
 }

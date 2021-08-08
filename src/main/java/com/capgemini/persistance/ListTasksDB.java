@@ -144,7 +144,7 @@ public class ListTasksDB extends DBConnection{
 				Date createdDB = rs.getDate("created");
 				Date plannedDB = rs.getDate("planned");
 				String titleDB = rs.getString("title");
-				String categoria = rs.getString("category_id");
+				String categoria = rs.getString("name");
 				Task temp = new Task(idDB, titleDB);
 				temp.setComments(commentsDB);
 				temp.setCreated(createdDB);

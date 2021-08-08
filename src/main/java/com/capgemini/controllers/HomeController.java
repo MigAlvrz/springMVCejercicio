@@ -69,9 +69,7 @@ public class HomeController {
 		for (User user : users) {
 			System.out.println(user.getLogin());
 		}
-		if(users.size()==0){
-			System.out.println("no hay users!");
-		}
+
 		System.out.println("vamos a users");
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("Users", users);

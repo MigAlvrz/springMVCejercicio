@@ -110,7 +110,7 @@ input {
 								<button type="button" class="btn btn-secondary"
 									data-dismiss="modal">Cancelar</button>
 								<input type="submit" value="Nuevo Usuario"
-									class="btn btn-primary" />
+									class="btn btn-secondary" />
 							</div>
 						</form:form>	
 					</div>

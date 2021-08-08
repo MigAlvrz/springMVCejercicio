@@ -1,9 +1,12 @@
 package com.capgemini.persistance;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import com.capgemini.model.Task;
 
 public class ListTasksDB extends DBConnection{
 
@@ -12,23 +15,26 @@ public class ListTasksDB extends DBConnection{
 	 * estos parámetros son:
 	 * tareas SIN CATEGORIA ordenadas por fecha planeada de mas antiguo a mas reciente.
 	 */
-	public ArrayList<String> listInbox(int userID){
-		ArrayList <String> inbox = new ArrayList<String>();
+	public ArrayList<Task> listInbox(int userID){
+		ArrayList <Task> inbox = new ArrayList<Task>();
+		
 		try {
 			//conexion con la BD
 			Connection con = super.DBAccess();
 			Statement stmt = con.createStatement();
 			//realiza la consulta
-			ResultSet rs = stmt.executeQuery("SELECT comments, created, finished, planned, title, category_id, user_id FROM ttasks WHERE category_id IS NULL AND (user_id = "+userID+") ORDER BY planned ASC"); 
+			ResultSet rs = stmt.executeQuery("SELECT id, comments, created, finished, planned, title, category_id, user_id FROM ttasks WHERE category_id IS NULL AND (user_id = "+userID+") ORDER BY planned ASC"); 
 			while(rs.next()) {
+				int idDB = rs.getInt("id");
 				String commentsDB = rs.getString("comments");
-				String createdDB = rs.getString("created");
-				String plannedDB = rs.getString("planned");
+				Date createdDB = rs.getDate("created");
+				Date plannedDB = rs.getDate("planned");
 				String titleDB = rs.getString("title");
-				inbox.add(titleDB);
-				inbox.add(createdDB);
-				inbox.add(plannedDB);
-				inbox.add(commentsDB);
+				Task Temp = new Task(idDB, titleDB);
+				Temp.setComments(commentsDB);
+				Temp.setCreated(createdDB);
+				Temp.setPlanned(plannedDB);
+				inbox.add(Temp);
 			}
 			//cerramos la conexión
 			con.close();
@@ -47,25 +53,27 @@ public class ListTasksDB extends DBConnection{
 	 *  Mostrar las tareas cuya fecha planeada es HOY y todas las retrasadas. Las tareas se listaran agrupadas por categoria de usuario y ordenas por fecha de mas antiguo 
 	 *  a mas reciente
 	 */
-	public ArrayList<String> listHoy(int UserID){
-		ArrayList <String> hoy = new ArrayList<String>();
+	public ArrayList<Task> listHoy(int UserID){
+		ArrayList <Task> hoy = new ArrayList<Task>();
 		try {
 			//conexion con la BD
 			Connection con = super.DBAccess();
 			Statement stmt = con.createStatement();
 			//realiza la consulta
-			ResultSet rs = stmt.executeQuery("SELECT comments, created, finished, planned, title, category_id, user_id FROM ttasks INNER JOIN tcategories ON TTASKS.category_id = tcategories.id WHERE (planned <= current_date) AND (user_id = "+UserID+") ORDER BY planned ASC ");
+			ResultSet rs = stmt.executeQuery("SELECT id, comments, created, finished, planned, title, category_id, user_id FROM ttasks INNER JOIN tcategories ON TTASKS.category_id = tcategories.id WHERE (planned <= current_date) AND (user_id = "+UserID+") ORDER BY planned ASC ");
 			while(rs.next()) {
+				int idDB = rs.getInt("id");
 				String commentsDB = rs.getString("comments");
-				String createdDB = rs.getString("created");
-				String plannedDB = rs.getString("planned");
+				Date createdDB = rs.getDate("created");
+				Date plannedDB = rs.getDate("planned");
 				String titleDB = rs.getString("title");
 				String categoria = rs.getString("category_id");
-				hoy.add(titleDB);
-				hoy.add(createdDB);
-				hoy.add(plannedDB);
-				hoy.add(commentsDB);
-				hoy.add(categoria);
+				Task temp = new Task(idDB, titleDB);
+				temp.setComments(commentsDB);
+				temp.setCreated(createdDB);
+				temp.setPlanned(plannedDB);
+				temp.setCategoria(categoria);
+				hoy.add(temp);
 			}
 			//cerramos la conexión
 			con.close();

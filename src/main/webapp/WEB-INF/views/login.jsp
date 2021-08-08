@@ -58,17 +58,12 @@ input {
 				<div class="card-body">
 					<form:form action="login" method="post" modelAtribute="User">
 						<div class="input-group-prepend">
-<<<<<<< HEAD
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-							<form action="home" method="post">
-=======
 							<input type="text" class="form-control" placeholder="usuario"
 								name="user">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 								<form action="home" method="post"> 
 							</div>
->>>>>>> homeViewsBranch
 						</div>
 						<div class="input-group form-group">
 							<input type="password" class="form-control" name="contra"
@@ -77,49 +72,6 @@ input {
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
 						</div>
-<<<<<<< HEAD
-					</div>
-					<input type="submit"
-						class="btn btn-outline-secondary btn-lg btn-block" value="entrar">
-					<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
-						data-toggle="modal" data-target="#modalNewUser">Nuevo usuario</button>
-					</form:form>
-
-
-						</div>
-						<div class="card-footer">
-							<p style="color: red;">${ErrorMessage}</p>
-						</div>
-
-					</div>
-
-					<!-- Modal -->
-					<div class="modal fade" id="modalNewUser" tabindex="-1" role="dialog" aria-labelledby="modalNewUser" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Nuevo
-										usuario</h5>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<form:form method="post" action="home" modelAtribute="User">
-									<div class="modal-body">
-
-										<p>test para ver que todo funciona</p>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cancelar</button>
-										<input type="submit" value="Nuevo Usuario"
-											class="btn btn-primary" />
-									</div>
-							</div>
-							</form:form>
-
-=======
 						<input type="submit"
 							class="btn btn-outline-secondary btn-lg btn-block" value="entrar">
 						<button type="button"
@@ -133,7 +85,6 @@ input {
 
 			</div>
 
->>>>>>> homeViewsBranch
 			<!-- Modal -->
 			<div class="modal fade" id="modalNewUser" tabindex="-1" role="dialog"
 				aria-labelledby="modalNewUser" aria-hidden="true">
@@ -147,21 +98,6 @@ input {
 							</button>
 						</div>
 						<form:form method="post" action="newUser" modelAtribute="User">
-<<<<<<< HEAD
-						<div class="modal-body">
-							<input type="text" class="form-control" placeholder="usuario" name="username">
-							<input type="email" class="form-control mt-4"" placeholder="email" name="email">
-							<input type="email" class="form-control mt-4"" placeholder="confirmar email">
-							<input type="password" class="form-control mt-4"" placeholder="contraseña" name="contra">
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">Cancelar</button>
-							<input type="submit" value="Nuevo Usuario"
-								class="btn btn-secondary" />
-						</div>
-						</form:form>
-=======
 							<div class="modal-body">
 								<input type="text" class="form-control" placeholder="usuario"
 									name="username"> <input type="email"
@@ -177,7 +113,6 @@ input {
 									class="btn btn-primary" />
 							</div>
 						</form:form>	
->>>>>>> homeViewsBranch
 					</div>
 
 

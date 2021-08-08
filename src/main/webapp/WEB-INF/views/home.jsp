@@ -99,9 +99,9 @@
 
 					<input type="submit" class="btn btn-outline-light" value="usuario">
 				</form:form>
-				<form action="admin" method="post">
+				<form:form action="home/admin" method="post">
 					<input type="submit" class="btn btn-outline-light" value="admin">
-				</form>
+				</form:form>
 			</div>
 
 		</div>

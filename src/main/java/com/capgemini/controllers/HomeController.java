@@ -66,7 +66,13 @@ public class HomeController {
 	public ModelAndView admin(Model model) {
 		
 		List<User> users = userDao.getUsers();
-		
+		for (User user : users) {
+			System.out.println(user.getLogin());
+		}
+		if(users.size()==0){
+			System.out.println("no hay users!");
+		}
+		System.out.println("vamos a users");
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("Users", users);
 		mv.setViewName("admin");

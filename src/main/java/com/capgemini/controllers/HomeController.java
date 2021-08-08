@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.capgemini.persistance.ListTasksDB;
+
+import antlr.collections.List;
+
 @Controller
 @RequestMapping(value ="/home")
 public class HomeController {
@@ -27,4 +31,12 @@ public class HomeController {
 		return new ModelAndView("redirecto:/admin");
 	}
 	
+	/*
+	 * trying to print tasks.
+	 */
+//	@RequestMapping(value="/tasks", method = RequestMethod.GET)
+//	public ModelAndView tasks(Model model) {
+//		return new ModelAndView("redirecto:/tasks");
+//		
+//	}
 }

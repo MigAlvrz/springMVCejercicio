@@ -56,20 +56,28 @@ input {
 					<h3>${titulo}</h3>
 				</div>
 				<div class="card-body">
-				<form:form action="login" method="post" modelAtribute="User">
-					<div class="input-group-prepend">
-						<input type="text" class="form-control" placeholder="usuario" name="user">
+					<form:form action="login" method="post" modelAtribute="User">
 						<div class="input-group-prepend">
+<<<<<<< HEAD
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 							<form action="home" method="post">
+=======
+							<input type="text" class="form-control" placeholder="usuario"
+								name="user">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+								<form action="home" method="post"> 
+							</div>
+>>>>>>> homeViewsBranch
 						</div>
-					</div>
-					<div class="input-group form-group">
-						<input type="password" class="form-control" name="contra"
-							placeholder="contraseña">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						<div class="input-group form-group">
+							<input type="password" class="form-control" name="contra"
+								placeholder="contraseña">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
 						</div>
+<<<<<<< HEAD
 					</div>
 					<input type="submit"
 						class="btn btn-outline-secondary btn-lg btn-block" value="entrar">
@@ -111,6 +119,21 @@ input {
 							</div>
 							</form:form>
 
+=======
+						<input type="submit"
+							class="btn btn-outline-secondary btn-lg btn-block" value="entrar">
+						<button type="button"
+							class="btn btn-outline-secondary btn-lg btn-block"
+							data-toggle="modal" data-target="#modalNewUser">nuevo usuario</button>
+						</form:form>
+				</div>
+				<div class="card-footer">
+					<p style="color: red;">${ErrorMessage}</p>
+				</div>
+
+			</div>
+
+>>>>>>> homeViewsBranch
 			<!-- Modal -->
 			<div class="modal fade" id="modalNewUser" tabindex="-1" role="dialog"
 				aria-labelledby="modalNewUser" aria-hidden="true">
@@ -124,6 +147,7 @@ input {
 							</button>
 						</div>
 						<form:form method="post" action="newUser" modelAtribute="User">
+<<<<<<< HEAD
 						<div class="modal-body">
 							<input type="text" class="form-control" placeholder="usuario" name="username">
 							<input type="email" class="form-control mt-4"" placeholder="email" name="email">
@@ -137,6 +161,23 @@ input {
 								class="btn btn-secondary" />
 						</div>
 						</form:form>
+=======
+							<div class="modal-body">
+								<input type="text" class="form-control" placeholder="usuario"
+									name="username"> <input type="email"
+									class="form-control" placeholder="email" name="email">
+								<input type="email" class="form-control"
+									placeholder="confirmar email"> <input type="password"
+									class="form-control" placeholder="contraseña" name="contra">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cancelar</button>
+								<input type="submit" value="Nuevo Usuario"
+									class="btn btn-primary" />
+							</div>
+						</form:form>	
+>>>>>>> homeViewsBranch
 					</div>
 
 

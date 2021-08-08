@@ -35,7 +35,7 @@
 						<c:forEach var="user" items="${Users}">
 							<tr>
 								<th scope="row">${user.getLogin()}</th>
-								<td>${user.getLogin()}</td>
+								<td>${user.getEmail()}</td>
 								<td>${user.getStatus()}</td>
 								<td>${user.getLogin() ? "si" : "no"}</td>
 								<td><input class="btn btn-outline-secondary btn-sm" value="modificar" data-toggle="modal" data-target="#modalNewUser"></td>

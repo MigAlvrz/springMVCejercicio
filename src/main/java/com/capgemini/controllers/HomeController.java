@@ -65,7 +65,10 @@ public class HomeController {
 	@RequestMapping(value="/admin", method = RequestMethod.POST)
 	public ModelAndView admin(Model model) {
 		
+		List<User> users = userDao.getUsers();
+		
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("Users", users);
 		mv.setViewName("admin");
 		return mv;
 	}

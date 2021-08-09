@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.capgemini.model.Task;
 import com.capgemini.persistance.ListTasksDB;
+import com.capgemini.persistance.addTaskDB;
 
 @Controller
 @RequestMapping(value ="/tasks")
@@ -35,5 +36,17 @@ public class TasksController {
 		mv.setViewName("tasks");
 		return mv;
 	}
+	
+	@RequestMapping(value="", method = RequestMethod.GET)
+	public ModelAndView listCategories(Model model) {
+		addTaskDB addTask = new addTaskDB();
+		
+		List<String> listCategories = addTask.categoryDB();
+		model.addAttribute(listCategories);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("addTasks");
+		return mv;
+	}
+	
 
 }

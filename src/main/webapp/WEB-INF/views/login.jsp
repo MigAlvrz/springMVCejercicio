@@ -106,6 +106,31 @@ input {
 
 						</div>
 					</div>
+					<form:form action="login" method="post" modelAtribute="User">
+						<div class="input-group-prepend">
+							<input type="text" class="form-control" placeholder="usuario"
+								name="user">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+								<form action="home" method="post"> 
+							</div>
+						</div>
+						<div class="input-group form-group">
+							<input type="password" class="form-control" name="contra"
+								placeholder="contraseña">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+						</div>
+						<input type="submit"
+							class="btn btn-outline-secondary btn-lg btn-block" value="entrar">
+						<button type="button"
+							class="btn btn-outline-secondary btn-lg btn-block"
+							data-toggle="modal" data-target="#modalNewUser">nuevo usuario</button>
+						</form:form>
+				</div>
+				<div class="card-footer">
+					<p style="color: red;">${ErrorMessage}</p>
 				</div>
 
 			</div>
@@ -127,6 +152,7 @@ input {
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
+
 						<div class="modal-body">
 							<p>test</p>
 						</div>
@@ -136,6 +162,24 @@ input {
 							<button type="button" class="btn btn-primary">Save
 								changes</button>
 						</div>
+
+						<form:form method="post" action="newUser" modelAtribute="User">
+							<div class="modal-body">
+								<input type="text" class="form-control" placeholder="usuario"
+									name="username"> <input type="email"
+									class="form-control" placeholder="email" name="email">
+								<input type="email" class="form-control"
+									placeholder="confirmar email"> <input type="password"
+									class="form-control" placeholder="contraseña" name="contra">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cancelar</button>
+								<input type="submit" value="Nuevo Usuario"
+									class="btn btn-secondary" />
+							</div>
+						</form:form>	
+
 					</div>
 				</div>
 			</div>

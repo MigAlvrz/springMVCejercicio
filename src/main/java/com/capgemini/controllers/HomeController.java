@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.capgemini.model.Task;
 import com.capgemini.model.User;
 import com.capgemini.model.UserBus;
+import com.capgemini.persistance.ListTasksDB;
 import com.capgemini.persistance.UserDao;
 import com.capgemini.persistance.listUsersDB;
 
@@ -53,6 +54,8 @@ public class HomeController {
 		
 		return mv;
 	}
+	
+	
 	
 	/**
 	 * redirects towards the User page

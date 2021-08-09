@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.capgemini.model.Task;
 import com.capgemini.model.User;
 import com.capgemini.model.UserBus;
 import com.capgemini.persistance.*;
@@ -75,6 +76,28 @@ public class LoginController {
 		UserBus.setUser(activeUser);	
 		mv.addObject("ErrorMessage", "");
 		mv.addObject("activeUser", activeUser);
+		
+		
+		long userId = activeUser.getId();
+		
+		System.out.println("Literalmente "+userId);
+		
+		ListTasksDB listTasks = new ListTasksDB();
+		
+		List<Task> tasksInbox = listTasks.listInbox(userId);
+		model.addAttribute("tasksInbox", tasksInbox);
+
+		List<Task> tasksHoy = listTasks.listHoy(userId);
+		model.addAttribute("tasksHoy", tasksHoy);
+
+		List<Task> tasksSemana = listTasks.listSemana(userId);
+		model.addAttribute("tasksSemana", tasksSemana);
+
+		List<Task> tasksCategoria = listTasks.listTareasCategorias(userId, "categoria1");
+		model.addAttribute("tasksCategoria", tasksCategoria);
+		
+		System.out.println("llego aqui?");
+		
 		mv.setViewName("home");
 		return mv;
 		} else {

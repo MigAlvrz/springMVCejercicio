@@ -6,10 +6,11 @@ import java.util.Objects;
 import javax.persistence.*;
 
 @Entity
-@Table(name="tusers")
+@Table(name="TUSERS")
 public class User {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	private String login;
@@ -19,14 +20,32 @@ public class User {
 	private boolean isAdmin;
 
 	
-	public User(long id, String login, String email, String password) {
+	public User() {
+		super();
+	}
+	
+	public User(String login, String email, String password) {
+		super();
+
+		this.login = login;
+		this.email = email;
+		this.password = password;
+		this.status = UserStatus.ENABLED;
+		this.isAdmin = false;
+		
+	}
+	
+
+
+	public User(long id, String login, String email, String password, UserStatus status, boolean isAdmin) {
 		super();
 		this.id = id;
 		this.login = login;
 		this.email = email;
 		this.password = password;
+		this.status = status;
+		this.isAdmin = isAdmin;
 	}
-
 
 	public long getId() {
 		return id;

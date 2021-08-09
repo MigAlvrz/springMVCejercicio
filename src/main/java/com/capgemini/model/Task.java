@@ -17,6 +17,7 @@ public class Task {
 	private Date created;
 	private Date planned;
 	private Date finished;
+	private String categoria;
 	
 	
 	public Task(long id, String title) {
@@ -25,6 +26,17 @@ public class Task {
 		this.title = title;
 		this.comments = "";
 		this.created = new Date();
+		this.categoria = categoria;
+	}
+
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
 
@@ -85,6 +97,13 @@ public class Task {
 
 	public void setFinished(Date finished) {
 		this.finished = finished;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Task [id=" + id + ", title=" + title + ", comments=" + comments + ", created=" + created + ", planned="
+				+ planned + ", finished=" + finished + ", categoria=" + categoria + "]";
 	}
 	
 	

@@ -92,13 +92,13 @@
 				</div>
 			</div>
 			<div class="col-1  flex-fill opciones">
-				<form:form action="home/activeUser" method="post" modelAtribute="User">
+				<form action="user" method="post">
 
 					<p>${activeUser.getLogin()}</p>
 
 
 					<input type="submit" class="btn btn-outline-light" value="usuario">
-				</form:form>
+				</form>
 				<form action="admin" method="post">
 					<input type="submit" class="btn btn-outline-light" value="admin">
 				</form>

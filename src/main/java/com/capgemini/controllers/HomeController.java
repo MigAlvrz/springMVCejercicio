@@ -28,9 +28,21 @@ public class HomeController {
 	private UserDao userDao;
 
 
-	@RequestMapping(value="", method = RequestMethod.POST)
-	public ModelAndView home() {
+	@RequestMapping(value="/", method = RequestMethod.POST)
+	public ModelAndView homePost() {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("activeUser", UserBus.getUser()); 
+		mv.setViewName("home");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value="/", method = RequestMethod.GET)
+	public ModelAndView homeGet() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("activeUser", UserBus.getUser()); 
+		
 		mv.setViewName("home");
 		
 		return mv;

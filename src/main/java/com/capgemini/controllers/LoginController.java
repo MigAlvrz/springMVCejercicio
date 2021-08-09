@@ -59,8 +59,6 @@ public class LoginController {
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public ModelAndView home(@RequestParam String user, @RequestParam String contra ,Model model) {
-		
-		//Aqui conectar a la base de datos y que devuelva un usuario. 
 		User activeUser = null;
 		System.out.println(this.users.size());
 		ModelAndView mv = new ModelAndView();
@@ -89,18 +87,26 @@ public class LoginController {
 	
 	@RequestMapping(value="/newUser", method = RequestMethod.POST)
 	public ModelAndView newUser(@RequestParam String username, @RequestParam String email, @RequestParam String contra, Model model) {
-		String errormessage = "Nuevo usuario añadido";
-		
+		String errormessage = "";
 		User newUser = new User(username, email, contra);
 		insertNewUserDB.insertNewUser(username, email, contra);
-		users.add(newUser);
-		System.out.println(newUser);
-		//userDao.add(newUser);
+		if(!containsName(users, username)) {
+		insertNewUserDB.insertNewUser(username, email, contra);
+		errormessage = "Nuevo usuario añadido";
+		} else {
+		errormessage = "Nombre de usuario no disponible";
+		}
+
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("titulo", "Getting Tasks Done!");
 		mv.addObject("ErrorMessage", errormessage);
 		mv.setViewName("login");
 		return mv;
+		
+	}
+	
+	private boolean containsName(final ArrayList<User> users, String newName) {
+		return users.stream().anyMatch(user -> user.getLogin().equals(newName));
 	}
 	
 	

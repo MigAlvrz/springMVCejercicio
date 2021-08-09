@@ -38,7 +38,7 @@ public class listUsersDB {
 		ArrayList <String> user = new ArrayList<String>();
 		//En esta clase mostramos los usuarios de la base de datos exceptuando su contrase�a.
 		try {
-			Connection con = super.DBAccess();
+			Connection con = DBConnection.DBAccess();
 			Statement stmt = con.createStatement();
 			//realiza la consulta
 			ResultSet rs = stmt.executeQuery("select id, email, isadmin, login, status from tusers ORDER BY login"); 

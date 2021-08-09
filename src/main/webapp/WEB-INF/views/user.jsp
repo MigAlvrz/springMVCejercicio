@@ -35,9 +35,9 @@
                         <div class=""> <span><input type="submit" class="btn btn-outline-secondary btn-sm" value="modificar" data-toggle="modal" data-target="#modalNewUser"></span> </div>
                     </div>
                     <div class="mt-2">
-                        <h3 class="heading">Tareas agregadas:<span class="offset-1"> 99</span></h3>
-                        <h3 class="heading">Tareas cumplidas:<span class="offset-1"> 99</span></h3>
-                        <h3 class="heading">Tareas pendientes:<span class="offset-1">99</span></h3>
+                        <h3 class="heading">Tareas agregadas:<span class="offset-1"> ${tareasTotales}</span></h3>
+                        <h3 class="heading">Tareas cumplidas:<span class="offset-1"> ${tareasCumplidas}</span></h3>
+                        <h3 class="heading">Tareas pendientes:<span class="offset-1">${tareasPendientes}</span></h3>
                     </div>
                     <div class="mt-4"></div>
                     <form action="/user/home" method="post">

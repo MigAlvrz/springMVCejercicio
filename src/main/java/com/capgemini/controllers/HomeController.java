@@ -23,19 +23,32 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value ="/home")
 public class HomeController {
 	
+	@Autowired
 	private ArrayList<Task> tareas = new ArrayList<>();
 	@Autowired @Qualifier("UserDaoImpl")
 	private UserDao userDao;
 
+	/**
+	 * Returns the home view page
+	 * @return
+	 */
 
 	@RequestMapping(value="", method = RequestMethod.POST)
 	public ModelAndView home() {
+		
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("activeUser", UserBus.getUser());
 		mv.setViewName("home");
 		
 		return mv;
 	}
 	
+	/**
+	 * redirects towards the User page
+	 * @param user
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/activeUser", method = RequestMethod.POST)
 	public ModelAndView user(@RequestParam(required=false, name="user") String user ,Model model) {
 		System.out.println("Mandando a la página de User");
@@ -55,26 +68,35 @@ public class HomeController {
 			mv.setViewName("user");
 			return mv;
 		}
-			System.out.println(activeUser.getLogin());
-			System.out.println("TESTERINO");
-			System.out.println(activeUser);
 		mv.setViewName("home");
 		return mv;
 	}
-	
+	/**
+	 * Redirects the user towards the admin view page if the user is admin. else it redirects to home
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/admin", method = RequestMethod.POST)
 	public ModelAndView admin(Model model) {
 		
+		if(UserBus.getUser().isAdmin()) {
 		List<User> users = userDao.getUsers();
 		for (User user : users) {
 			System.out.println(user.getLogin());
 		}
 
-		System.out.println("vamos a users");
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("Users", users);
 		mv.setViewName("admin");
 		return mv;
+		} else {
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("activeUser", UserBus.getUser());
+			mv.setViewName("home");
+			
+			return mv;
+		}
+		
 	}
 	
 }

@@ -64,7 +64,7 @@
 						<thead class="thead-dark">
 							<tr>
 								<th scope="col-1"><span class="col-1">tareas!</span> <input
-									type="submit" class="btn btn-outline-secondary col-1 offset-10"
+									type="submit" class="btn btn-outline-secondary col-2 offset-9"
 									value="Nueva Tarea"></th>
 							</tr>
 						</thead>

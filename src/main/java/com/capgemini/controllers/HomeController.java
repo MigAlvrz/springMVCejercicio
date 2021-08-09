@@ -9,6 +9,7 @@ import com.capgemini.model.Task;
 import com.capgemini.model.User;
 import com.capgemini.model.UserBus;
 import com.capgemini.persistance.UserDao;
+import com.capgemini.persistance.listUsersDB;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -65,20 +66,9 @@ public class HomeController {
 		System.out.println(user);
 		ModelAndView mv = new ModelAndView();
 		List<User> users = new ArrayList<>();
-		User activeUser = new User();
-		users = userDao.getUsers();
-		for (User usuario : users) {
-			System.out.println(usuario.getLogin());
-			if (usuario.getLogin().equals(user))
-				activeUser = usuario;
-		}
-		activeUser = UserBus.getUser();
-		if(activeUser.getLogin()!=null) {
-			mv.addObject("activeUser", activeUser);
-			mv.setViewName("user");
-			return mv;
-		}
-		mv.setViewName("home");
+		User activeUser = UserBus.getUser();
+		mv.addObject("activeUser", activeUser);
+		mv.setViewName("user");
 		return mv;
 	}
 	/**
@@ -89,8 +79,8 @@ public class HomeController {
 	@RequestMapping(value="/admin", method = RequestMethod.POST)
 	public ModelAndView admin(Model model) {
 		
-		if(UserBus.getUser().isAdmin()) {
-		List<User> users = userDao.getUsers();
+		if(true) {
+		List<User> users = listUsersDB.listUsers();
 		for (User user : users) {
 			System.out.println(user.getLogin());
 		}

@@ -92,6 +92,7 @@ public class LoginController {
 		insertNewUserDB.insertNewUser(username, email, contra);
 		if(!containsName(users, username)) {
 		insertNewUserDB.insertNewUser(username, email, contra);
+		users.add(newUser);
 		errormessage = "Nuevo usuario añadido";
 		} else {
 		errormessage = "Nombre de usuario no disponible";

@@ -101,7 +101,7 @@
 				</form>
 				<form action="admin" method="post">
 					<input type="submit" class="btn btn-outline-light" value="admin">
-				</form:form>
+				</form>
 			</div>
 
 		</div>

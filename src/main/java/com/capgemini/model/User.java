@@ -34,7 +34,18 @@ public class User {
 		this.isAdmin = false;
 		
 	}
+	
 
+
+	public User(long id, String login, String email, String password, UserStatus status, boolean isAdmin) {
+		super();
+		this.id = id;
+		this.login = login;
+		this.email = email;
+		this.password = password;
+		this.status = status;
+		this.isAdmin = isAdmin;
+	}
 
 	public long getId() {
 		return id;

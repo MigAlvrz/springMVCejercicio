@@ -9,7 +9,7 @@ public class DBConnection {
 
 
 
-	public Connection DBAccess() throws SQLException{
+	public static Connection DBAccess() throws SQLException{
 		try {
 			Class.forName("org.hsqldb.jdbcDriver");
 

@@ -40,7 +40,7 @@
                         <h3 class="heading">Tareas pendientes:<span class="offset-1">${tareasPendientes}</span></h3>
                     </div>
                     <div class="mt-4"></div>
-                    <form action="/GTD_G2/home/" method="post">
+                    <form action="/GTD_G2/home/" method="GET">
                         <input type="submit" class="btn btn-outline-secondary col-3" value="volver">
                     </form>
                 </div>
@@ -60,19 +60,19 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                 </div>
-                <form:form method="post" action="newUser" modelAtribute="User">
+                <form method="post" action="/GTD_G2/user/modUser" modelAtribute="User">
                     <div class="modal-body">
-                        <input type="text" class="form-control" placeholder="Nuevo nombre de usuario" name="username">
-                        <input type="email" class="form-control  mt-4" placeholder="Nuevo email" name="email">
-                        <input type="email" class="form-control  mt-4" placeholder="Nueva contraseña">
-                        <input type="password" class="form-control  mt-4" placeholder="Confirmar nueva contraseña" name="contra">
+                        <input name="newName" type="text" class="form-control" placeholder="Nuevo nombre de usuario" name="username">
+                        <input name="newMail" type="email" class="form-control  mt-4" placeholder="Nuevo email" name="email">
+                        <input name="newContra" type="password" class="form-control  mt-4" placeholder="Nueva contraseña">
+                        <input name="contraConfirm" type="password" class="form-control  mt-4" placeholder="Confirmar nueva contraseña" name="contra">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <input type="submit" value="modificar" class="btn btn-secondary " />
                     </div>
             </div>
-            </form:form>
+            </form>
         </div>
     </div>
 

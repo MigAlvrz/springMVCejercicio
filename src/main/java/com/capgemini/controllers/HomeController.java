@@ -27,8 +27,8 @@ import antlr.collections.List;
 @RequestMapping(value ="/home")
 public class HomeController {
 	
-	@Autowired
-	private ArrayList<Task> tareas = new ArrayList<>();
+//	@Autowired
+//	private ArrayList<Task> tareas = new ArrayList<>();
 	@Autowired @Qualifier("UserDaoImpl")
 	private UserDao userDao;
 
@@ -63,7 +63,7 @@ public class HomeController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/activeUser", method = RequestMethod.POST)
+	@RequestMapping(value="/user", method = RequestMethod.POST)
 	public ModelAndView user(@RequestParam(required=false, name="user") String user ,Model model) {
 		System.out.println("Mandando a la página de User");
 		System.out.println(user);

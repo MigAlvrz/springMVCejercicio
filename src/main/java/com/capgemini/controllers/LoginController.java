@@ -4,6 +4,7 @@ import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +31,22 @@ public class LoginController {
 	@Autowired @Qualifier("UserDaoImpl")
 	private UserDao userDao;
 	
+	CreateDB createDB = new CreateDB();
+	LoginDB loginDB = new LoginDB();
+	UpdateStatusAdminDB updateStatusDB = new UpdateStatusAdminDB();
+	listUsersDB listUsersDB = new listUsersDB();
+	ArrayList<User> users = new ArrayList<>();
+	
 //  al comentar esto, funciona
 //	@Autowired
 //	private UserRepository userRepository;
 
 
+	@PostConstruct
+	public void startUp() {
+		createDB.crearDB();
+		users = listUsersDB.listUsers();
+	}
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView login() {
@@ -50,21 +62,16 @@ public class LoginController {
 		
 		//Aqui conectar a la base de datos y que devuelva un usuario. 
 		User activeUser = null;
-		List<User> users = new ArrayList<>();
+		System.out.println(this.users.size());
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("titulo", "Getting Tasks Done!");
-		try {
-			users = userDao.getUsers();
-			for (User usuario : users) {
-				if (usuario.getLogin().equals(user)) {
-					if(usuario.getPassword().equals(contra))
-						activeUser = usuario;
-				}
+		for (User user2 : this.users) {
+			System.out.println(user2.getLogin()+" "+user2.getPassword());
+			if(user2.getLogin().equals(user)&&user2.getPassword().equals(contra)){
+				activeUser = user2;
+				UserBus.setUser(user2);
+				System.out.println(activeUser.getLogin());
 			}
-		} catch (Exception e) {
-			activeUser = null;
-			System.out.println("the active user could not be loaded because: ");
-			e.printStackTrace();
 		}
 		if(activeUser != null) {
 		UserBus.setUser(activeUser);	
@@ -85,8 +92,10 @@ public class LoginController {
 		String errormessage = "Nuevo usuario añadido";
 		
 		User newUser = new User(username, email, contra);
+		insertNewUserDB.insertNewUser(username, email, contra);
+		users.add(newUser);
 		System.out.println(newUser);
-		userDao.add(newUser);
+		//userDao.add(newUser);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("titulo", "Getting Tasks Done!");
 		mv.addObject("ErrorMessage", errormessage);

@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import com.capgemini.model.Task;
 
 public class addTaskDB extends DBConnection{
-	public void addTask(String title, int id_categoria){
+	public void addTask(String title, int id_categoria, long id_user){
 		try {
 			//conexion con la BD
 			Connection con = super.DBAccess();
 			Statement stmt = con.createStatement();
 			//realiza la consulta
-			ResultSet rs = stmt.executeQuery("INSERT INTO ttasks (created, title, category_id) VALUES (current_date, '"+title+"',"+id_categoria+")"); 
+			ResultSet rs = stmt.executeQuery("INSERT INTO ttasks (created, title, category_id, user_id) VALUES (current_date, '"+title+"',"+id_categoria+","+id_user+")"); 
 			//cerramos la conexión
 			con.close();
 		}

@@ -10,6 +10,7 @@ import com.capgemini.model.User;
 import com.capgemini.model.UserBus;
 import com.capgemini.persistance.ListTasksDB;
 import com.capgemini.persistance.UserDao;
+import com.capgemini.persistance.insertNewUserDB;
 import com.capgemini.persistance.listUsersDB;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,5 +102,7 @@ public class HomeController {
 		}
 		
 	}
+	
+	
 	
 }

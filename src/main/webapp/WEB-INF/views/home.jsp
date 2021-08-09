@@ -101,7 +101,7 @@
 										onclick="toggleVisibility('Menu3');">Semana</a>
 								</span></th>
 								<th scope="col-1"><span class="col-1"> <a href="#"
-										onclick="toggleVisibility('Menu4');">Catgoría</a>
+										onclick="toggleVisibility('Menu4');">Categoría</a>
 								</span></th>
 							</tr>
 						</thead>
@@ -256,10 +256,15 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form:form method="post" action="newUser" modelAtribute="User">
+				<form:form method="post" action="newTask" modelAtribute="Task">
 					<div class="modal-body">
 						<input type="text" class="form-control" placeholder="Nombre de la tarea"
-							name="name">
+							name="task">
+						<input  type="text" class="form-control" placeholder="Nombre de la tarea"
+							name="user" style="display:none" value="${activeUser.getLogin()}">
+						<input  type="text" class="form-control" placeholder="Nombre de la tarea"
+							name="contra" style="display:none" value="${activeUser.getPassword()}">
+							
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"

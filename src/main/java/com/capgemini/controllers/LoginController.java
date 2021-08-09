@@ -40,16 +40,20 @@ public class LoginController {
 	listUsersDB listUsersDB = new listUsersDB();
 	ArrayList<User> users = new ArrayList<>();
 	
-//  al comentar esto, funciona
-//	@Autowired
-//	private UserRepository userRepository;
-
-
+	/**
+	 * After the login view is made, creates a db if not exists and loads the existing users
+	 */
+	
 	@PostConstruct
 	public void startUp() {
 		createDB.crearDB();
 		users = listUsersDB.listUsers();
 	}
+	
+	/**
+	 * loads the login view
+	 * @return
+	 */
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView login() {
@@ -59,6 +63,14 @@ public class LoginController {
 		mv.setViewName("login");
 		return mv;
 	}  
+	
+	/**
+	 * Logins into the app with an existing user
+	 * @param user
+	 * @param contra
+	 * @param model
+	 * @return
+	 */
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public ModelAndView home(@RequestParam String user, @RequestParam String contra ,Model model) {
@@ -106,6 +118,16 @@ public class LoginController {
 		}
 	}
 	
+	/**
+	 * Creates a new user with an unique name an an email. 
+	 * 
+	 * @param username
+	 * @param email
+	 * @param contra
+	 * @param model
+	 * @return
+	 */
+	
 	@RequestMapping(value="/newUser", method = RequestMethod.POST)
 	public ModelAndView newUser(@RequestParam String username, @RequestParam String email, @RequestParam String contra, Model model) {
 		String errormessage = "";
@@ -126,6 +148,13 @@ public class LoginController {
 		return mv;
 		
 	}
+	
+	/**
+	 * Checks if the username introduced is not already in the DB
+	 * @param users
+	 * @param newName
+	 * @return
+	 */
 	
 	private boolean containsName(final ArrayList<User> users, String newName) {
 		return users.stream().anyMatch(user -> user.getLogin().equals(newName));

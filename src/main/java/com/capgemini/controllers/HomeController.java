@@ -31,12 +31,5 @@ public class HomeController {
 		return new ModelAndView("redirecto:/admin");
 	}
 	
-	/*
-	 * trying to print tasks.
-	 */
-//	@RequestMapping(value="/tasks", method = RequestMethod.GET)
-//	public ModelAndView tasks(Model model) {
-//		return new ModelAndView("redirecto:/tasks");
-//		
-//	}
+
 }

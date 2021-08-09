@@ -40,7 +40,7 @@
                         <h3 class="heading">Tareas pendientes:<span class="offset-1">${tareasPendientes}</span></h3>
                     </div>
                     <div class="mt-4"></div>
-                    <form action="/user/home" method="post">
+                    <form action="/GTD_G2/home/" method="post">
                         <input type="submit" class="btn btn-outline-secondary col-3" value="volver">
                     </form>
                 </div>

@@ -45,7 +45,7 @@
 						</c:forEach>
 					</tbody>
 				</table>	
-				<form action="home" method="post">
+				 <form action="/GTD_G2/home/" method="post">
 					<input type="submit"
 						class="btn btn-outline-secondary btn-lg btn-block" value="volver">
 				</form>

@@ -12,6 +12,10 @@ import com.capgemini.model.Task;
 import com.capgemini.persistance.ListTasksDB;
 import com.capgemini.persistance.addTaskDB;
 
+/**
+ * This was a Task constroller that ended not being used in the final version.
+ */
+
 @Controller
 @RequestMapping(value ="/tasks")
 public class TasksController {

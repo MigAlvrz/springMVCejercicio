@@ -22,6 +22,7 @@ import com.capgemini.persistance.DBConnection;
 import com.capgemini.persistance.UserDao;
 import com.capgemini.persistance.UserDaoImpl;
 
+
 @Controller
 @RequestMapping(value ="/user")
 public class UserController {
@@ -29,12 +30,24 @@ public class UserController {
 	@Autowired @Qualifier("UserDaoImpl")
 	private UserDao userDao;
 	
-	@RequestMapping(value="", method = RequestMethod.POST)
+	/**
+	 * Loads the user view
+	 * @param model
+	 * @return
+	 */
+	
+	@RequestMapping(value="", method = RequestMethod.GET)
 	public ModelAndView user(Model model) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("user");
 		return mv;
 	}
+	
+	/**
+	 * Returns to the home view
+	 * @param model
+	 * @return
+	 */
 	
 	@RequestMapping(value="/home", method = RequestMethod.GET)
 	public ModelAndView home(ModelMap model) {		
@@ -44,6 +57,16 @@ public class UserController {
 		model.addAttribute("activeUser", activeUser);
 		return new ModelAndView("redirect:/home/", model);
 	}
+	
+	/**
+	 * Modifies the active User
+	 * @param model
+	 * @param newName
+	 * @param newMail
+	 * @param newContra
+	 * @param contraConfirm
+	 * @return
+	 */
 	
 	@RequestMapping(value="/modUser", method = RequestMethod.POST)
 	public ModelAndView modUser(Model model, @RequestParam String newName, @RequestParam String newMail, @RequestParam String newContra, @RequestParam String contraConfirm) {

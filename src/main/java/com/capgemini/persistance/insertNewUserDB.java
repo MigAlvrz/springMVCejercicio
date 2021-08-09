@@ -5,6 +5,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class insertNewUserDB  {
+	
+	/**
+	 * Inserts a user into the Users table
+	 * @param login
+	 * @param email
+	 * @param password
+	 */
+	
 	public static void insertNewUser(String login, String email, String password) {
 		try {
 			//realiza la conexion

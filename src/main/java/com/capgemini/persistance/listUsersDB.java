@@ -10,6 +10,12 @@ import com.capgemini.model.User;
 import com.capgemini.model.UserStatus;
 
 public class listUsersDB {
+	
+	/**
+	 *	Returns all the users from the DB
+	 * @return
+	 */
+	
 	public static ArrayList<User> listUsers(){
 		//declaramos un arraylist de usuarios
 		ArrayList <User> user = new ArrayList<User>();
@@ -33,6 +39,11 @@ public class listUsersDB {
 		}
 		return null;
 	}
+	
+	/**
+	 * Lists all the users from the DB ordered by login
+	 * @return
+	 */
 	public ArrayList<String> listUsersOrderByLogin(){
 		//declaramos un arraylist de usuarios
 		ArrayList <String> user = new ArrayList<String>();
@@ -71,6 +82,12 @@ public class listUsersDB {
 		}
 		return null;
 	}
+	
+	/**
+	 * Lists all the users from the DB ordered by email. 
+	 * @return
+	 */
+	
 	public ArrayList<String> listUsersOrderByEmail(){
 		//declaramos un arraylist de usuarios
 		ArrayList <String> user = new ArrayList<String>();
@@ -109,6 +126,12 @@ public class listUsersDB {
 		}
 		return null;
 	}
+	
+	/**
+	 * Lists all the users from the DB ordered by status. 
+	 * @return
+	 */
+	
 	public ArrayList<String> listUsersOrderByStatus(){
 		//declaramos un arraylist de usuarios
 		ArrayList <String> user = new ArrayList<String>();

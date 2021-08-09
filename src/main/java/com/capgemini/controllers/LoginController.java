@@ -75,15 +75,12 @@ public class LoginController {
 	@RequestMapping(value="/login", method = RequestMethod.POST)
 	public ModelAndView home(@RequestParam String user, @RequestParam String contra ,Model model) {
 		User activeUser = null;
-		System.out.println(this.users.size());
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("titulo", "Getting Tasks Done!");
 		for (User user2 : this.users) {
-			System.out.println(user2.getLogin()+" "+user2.getPassword());
 			if(user2.getLogin().equals(user)&&user2.getPassword().equals(contra)){
 				activeUser = user2;
 				UserBus.setUser(user2);
-				System.out.println(activeUser.getLogin());
 			}
 		}
 		if(activeUser != null) {
@@ -161,6 +158,14 @@ public class LoginController {
 	}
 	
 	
+	/**
+	 * Adds a task to the db
+	 * @param task
+	 * @param user
+	 * @param contra
+	 * @return
+	 */
+	
 	@RequestMapping(value="/newTask", method = RequestMethod.POST)
 	public ModelAndView newTask(@RequestParam String task, @RequestParam String user, @RequestParam String contra) {
 		
@@ -170,11 +175,9 @@ public class LoginController {
 		
 		ModelAndView mv = new ModelAndView();
 		for (User user2 : users) {
-			System.out.println(user2.getLogin()+" "+user2.getPassword());
 			if(user2.getLogin().equals(user)&&user2.getPassword().equals(contra)){
 				activeUser = user2;
 				UserBus.setUser(user2);
-				System.out.println(activeUser.getLogin());
 			}
 		}
 		
@@ -203,6 +206,17 @@ public class LoginController {
 		
 	}
 	
+	/**
+	 * Edits an existing task from the DB
+	 * @param id
+	 * @param title
+	 * @param planned
+	 * @param comments
+	 * @param user
+	 * @param contra
+	 * @return
+	 */
+	
 	@RequestMapping(value="/editTask", method = RequestMethod.POST)
 	public ModelAndView editTask(@RequestParam int id,@RequestParam String title,@RequestParam String planned, @RequestParam String comments, @RequestParam String user, @RequestParam String contra) {
 		
@@ -216,7 +230,6 @@ public class LoginController {
 			if(user2.getLogin().equals(user)&&user2.getPassword().equals(contra)){
 				activeUser = user2;
 				UserBus.setUser(user2);
-				System.out.println(activeUser.getLogin());
 			}
 		}
 		

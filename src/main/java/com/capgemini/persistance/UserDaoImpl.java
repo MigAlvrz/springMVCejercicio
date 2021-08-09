@@ -9,7 +9,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.capgemini.model.User;
-
+/**
+ * This is an implementation of the user DAO using hibernate annotations. It ended not being used
+ * @author migualva
+ *
+ */
 @Repository("UserDaoImpl")
 @Transactional
 public class UserDaoImpl implements UserDao {

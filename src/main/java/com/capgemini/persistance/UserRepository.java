@@ -1,5 +1,8 @@
 package com.capgemini.persistance;
 
+/**
+ * This is an user repository that ended not being used in the final version
+ */
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

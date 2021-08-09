@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import com.capgemini.model.Task;
 
 public class addTaskDB extends DBConnection{
+	/**
+	 * Adds a task to the DB
+	 * @param title
+	 * @param id_categoria
+	 * @param id_user
+	 */
+	
 	public void addTask(String title, int id_categoria, long id_user){
 		try {
 			//conexion con la BD
@@ -24,6 +31,11 @@ public class addTaskDB extends DBConnection{
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Selects all the rows form the Category Table in the DB
+	 * @return
+	 */
 	
 	public ArrayList<String> categoryDB (){
 		ArrayList<String> showCategory= new ArrayList<String>();

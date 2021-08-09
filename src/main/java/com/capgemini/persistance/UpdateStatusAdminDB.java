@@ -7,6 +7,10 @@ import java.sql.Statement;
 
 public class UpdateStatusAdminDB extends DBConnection{
 	
+	/**
+	 * Sets the status of an user to disabled
+	 * @param id
+	 */
 	public void UpdateStatusToEnabled(int id){
 		try {
 			//realiza la conexion
@@ -21,6 +25,12 @@ public class UpdateStatusAdminDB extends DBConnection{
 			e.printStackTrace();
 		} 
 	}
+	
+	/**
+	 * Sets the status of an user to enabled
+	 * @param id
+	 */
+	
 	public void UpdateStatusToDisabled(int id){
 		try {
 			//realiza la conexion

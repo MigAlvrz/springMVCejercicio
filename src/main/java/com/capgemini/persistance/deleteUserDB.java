@@ -5,13 +5,19 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class deleteUserDB extends DBConnection{
+	
+	/**
+	 * Deletes a user from the DB
+	 * @param id
+	 */
+	
 	public void deleteUser(int id) {
 		try {
 			//realiza la conexion
 			Connection con = super.DBAccess();
 			Statement stmt = con.createStatement();
 			//realiza la consulta
-			//bora la categoría del usuario indicado.
+			//bora la categorï¿½a del usuario indicado.
 			ResultSet borraCategoria= stmt.executeQuery("DELETE FROM tcategories WHERE user_id = "+id);
 			//borra la tarea del usuario indicado.
 			ResultSet borraTarea = stmt.executeQuery("DELETE FROM ttasks WHERE user_id = "+id);

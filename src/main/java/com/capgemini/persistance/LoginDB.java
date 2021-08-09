@@ -7,6 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class LoginDB extends DBConnection {
+	
+	/**
+	 * Logs an user into the database if the username and password are correct
+	 * 
+	 * @param username
+	 * @param password
+	 */
+	
 	public void login(String username, String password) {
 		try {
 			//realiza la conexi�n con la DB a trav�s de su clase padre.

@@ -10,10 +10,14 @@ import javax.servlet.jsp.tagext.TryCatchFinally;
 
 public class CreateDB extends DBConnection {
 
+	/**
+	 * Creates the tables for the pojo classes if they don't exist
+	 */
+	
 	public void crearDB() {
 
 		try  {
-			//realiza la conexión con la DB a través de su clase padre.
+			//realiza la conexiï¿½n con la DB a travï¿½s de su clase padre.
 			Connection con = super.DBAccess();
 			Statement stmt = con.createStatement();
 			//crea la tabla tusers siempre y cuando no exista
@@ -48,7 +52,7 @@ public class CreateDB extends DBConnection {
 					+ "FOREIGN KEY(user_id) REFERENCES tusers(id) ON DELETE SET NULL,\r\n"
 					+ "PRIMARY KEY (id)\r\n"
 					+ ");");
-			//cierra la conexión con la base de datos
+			//cierra la conexiï¿½n con la base de datos
 			con.close();
 
 		}

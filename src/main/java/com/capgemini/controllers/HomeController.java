@@ -45,6 +45,11 @@ public class HomeController {
 		return mv;
 	}
 	
+/**
+ * loads the home view page, but with a get request
+ * @return
+ */
+	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView homeGet() {
 		ModelAndView mv = new ModelAndView();

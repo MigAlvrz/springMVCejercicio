@@ -8,6 +8,11 @@ import java.sql.Statement;
 public class DBConnection {
 
 
+	/**
+	 * Creates a connection to the hsqldb database
+	 * @return
+	 * @throws SQLException
+	 */
 
 	public static Connection DBAccess() throws SQLException{
 		try {

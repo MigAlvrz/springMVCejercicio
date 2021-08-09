@@ -7,12 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import org.springframework.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.capgemini.model.User;
 import com.capgemini.model.UserBus;
+import com.capgemini.persistance.DBConnection;
 import com.capgemini.persistance.UserDao;
 import com.capgemini.persistance.UserDaoImpl;
 
@@ -48,7 +54,16 @@ public class UserController {
 		System.out.println(user.getLogin());
 		System.out.println(user.getEmail());
 		UserBus.setUser(user);
-		userDao.add(user);
+		Connection con;
+		try {
+			con = DBConnection.DBAccess();
+			Statement stmt = con.createStatement();
+			stmt.executeQuery("UPDATE TUSERS SET email = '"+newMail+"', login='"+newName+"', password='"+String.valueOf(newContra)+"' WHERE ID="+user.getId()+";");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("activeUser", user);

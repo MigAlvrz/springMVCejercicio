@@ -2,6 +2,8 @@ package com.capgemini.controllers;
 
 import java.lang.ProcessBuilder.Redirect; 
 import java.util.ArrayList;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.capgemini.model.Task;
 import com.capgemini.model.User;
 import com.capgemini.model.UserBus;
 import com.capgemini.persistance.*;
@@ -87,6 +90,24 @@ public class LoginController {
 		UserBus.setUser(activeUser);	
 		mv.addObject("ErrorMessage", "");
 		mv.addObject("activeUser", activeUser);
+		
+		
+		long userId = activeUser.getId();
+		
+		ListTasksDB listTasks = new ListTasksDB();
+		
+		List<Task> tasksInbox = listTasks.listInbox(userId);
+		model.addAttribute("tasksInbox", tasksInbox);
+
+		List<Task> tasksHoy = listTasks.listHoy(userId);
+		model.addAttribute("tasksHoy", tasksHoy);
+
+		List<Task> tasksSemana = listTasks.listSemana(userId);
+		model.addAttribute("tasksSemana", tasksSemana);
+
+		List<Task> tasksCategoria = listTasks.listTareasCategorias(userId, "categoria1");
+		model.addAttribute("tasksCategoria", tasksCategoria);
+		
 		mv.setViewName("home");
 		return mv;
 		} else {
@@ -137,6 +158,97 @@ public class LoginController {
 	
 	private boolean containsName(final ArrayList<User> users, String newName) {
 		return users.stream().anyMatch(user -> user.getLogin().equals(newName));
+	}
+	
+	
+	@RequestMapping(value="/newTask", method = RequestMethod.POST)
+	public ModelAndView newTask(@RequestParam String task, @RequestParam String user, @RequestParam String contra) {
+		
+		User activeUser=null;
+		
+		ArrayList<User> users = listUsersDB.listUsers();
+		
+		ModelAndView mv = new ModelAndView();
+		for (User user2 : users) {
+			System.out.println(user2.getLogin()+" "+user2.getPassword());
+			if(user2.getLogin().equals(user)&&user2.getPassword().equals(contra)){
+				activeUser = user2;
+				UserBus.setUser(user2);
+				System.out.println(activeUser.getLogin());
+			}
+		}
+		
+		
+		ListTasksDB listTasks = new ListTasksDB();
+		
+		List<Task> tasksInbox = listTasks.listInbox(activeUser.getId());
+		mv.addObject("tasksInbox", tasksInbox);
+
+		List<Task> tasksHoy = listTasks.listHoy(activeUser.getId());
+		mv.addObject("tasksHoy", tasksHoy);
+
+		List<Task> tasksSemana = listTasks.listSemana(activeUser.getId());
+		mv.addObject("tasksSemana", tasksSemana);
+
+		List<Task> tasksCategoria = listTasks.listTareasCategorias(activeUser.getId(), "categoria1");
+		mv.addObject("tasksCategoria", tasksCategoria);
+		mv.addObject("activeUser", activeUser);
+		
+		addTaskDB addTask= new addTaskDB();
+		
+		addTask.addTask(task, 2, activeUser.getId());
+		
+		mv.setViewName("home");
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="/editTask", method = RequestMethod.POST)
+	public ModelAndView editTask(@RequestParam int id,@RequestParam String title,@RequestParam String planned, @RequestParam String comments, @RequestParam String user, @RequestParam String contra) {
+		
+		User activeUser=null;
+		
+		ArrayList<User> users = listUsersDB.listUsers();
+		
+		ModelAndView mv = new ModelAndView();
+		for (User user2 : users) {
+			System.out.println(user2.getLogin()+" "+user2.getPassword());
+			if(user2.getLogin().equals(user)&&user2.getPassword().equals(contra)){
+				activeUser = user2;
+				UserBus.setUser(user2);
+				System.out.println(activeUser.getLogin());
+			}
+		}
+		
+		
+		
+		
+		updateTaskDB updateTask= new updateTaskDB();
+
+		
+		//Date plannedDate= Date.valueOf(planned);
+		
+		
+		updateTask.updateTask(comments, planned, title, id);
+		
+		ListTasksDB listTasks = new ListTasksDB();
+		
+		List<Task> tasksInbox = listTasks.listInbox(activeUser.getId());
+		mv.addObject("tasksInbox", tasksInbox);
+
+		List<Task> tasksHoy = listTasks.listHoy(activeUser.getId());
+		mv.addObject("tasksHoy", tasksHoy);
+
+		List<Task> tasksSemana = listTasks.listSemana(activeUser.getId());
+		mv.addObject("tasksSemana", tasksSemana);
+
+		List<Task> tasksCategoria = listTasks.listTareasCategorias(activeUser.getId(), "categoria1");
+		mv.addObject("tasksCategoria", tasksCategoria);
+		mv.addObject("activeUser", activeUser);
+		
+		mv.setViewName("home");
+		return mv;
+		
 	}
 	
 	

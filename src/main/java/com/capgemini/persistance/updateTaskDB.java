@@ -1,26 +1,26 @@
 package com.capgemini.persistance;
 
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.capgemini.model.Task;
 
-public class addTaskDB extends DBConnection{
-	public void addTask(String title, int id_categoria, long id_user){
+public class updateTaskDB extends DBConnection{
+	public void updateTask(String comments, String planned, String title, int id_tarea){
 		try {
 			//conexion con la BD
 			Connection con = super.DBAccess();
 			Statement stmt = con.createStatement();
 			//realiza la consulta
-			ResultSet rs = stmt.executeQuery("INSERT INTO ttasks (created, title, category_id, user_id) VALUES (current_date, '"+title+"',"+id_categoria+","+id_user+")"); 
+			ResultSet rs = stmt.executeQuery("UPDATE ttasks SET comments = '"+comments+"' , planned = '"+planned+"', title ='"+title+"' WHERE id = "+id_tarea); 
 			//cerramos la conexión
 			con.close();
 		}
 		catch (Exception e) {
-			System.out.println("addTasks failed.");
+			System.out.println("updateTask failed.");
 			e.printStackTrace();
 		}
 	}
@@ -49,4 +49,3 @@ public class addTaskDB extends DBConnection{
 		return null;
 	}
 }
-

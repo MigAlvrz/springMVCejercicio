@@ -1,26 +1,26 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import com.capgemini.persistance.CreateDB;
-import com.capgemini.persistance.LoginDB;
-import com.capgemini.persistance.UpdateStatusAdminDB;
-import com.capgemini.persistance.deleteUserDB;
-import com.capgemini.persistance.insertNewUserDB;
-import com.capgemini.persistance.listUsersDB;
-import com.capgemini.persistance.ListTasksDB;
-
-public class testMain {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		CreateDB createDB = new CreateDB();
-		LoginDB loginDB = new LoginDB();
-		UpdateStatusAdminDB updateStatusDB = new UpdateStatusAdminDB();
-		listUsersDB listUsersDB = new listUsersDB();
-
-		deleteUserDB deleteUserDB = new deleteUserDB();
-		insertNewUserDB insertNewUser = new insertNewUserDB();
-		ListTasksDB listTasks = new ListTasksDB();
+//import java.util.ArrayList;
+//import java.util.Scanner;
+//
+//import com.capgemini.persistance.CreateDB;
+//import com.capgemini.persistance.LoginDB;
+//import com.capgemini.persistance.UpdateStatusAdminDB;
+//import com.capgemini.persistance.deleteUserDB;
+//import com.capgemini.persistance.insertNewUserDB;
+//import com.capgemini.persistance.listUsersDB;
+//import com.capgemini.persistance.ListTasksDB;
+//
+//public class testMain {
+//
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//		CreateDB createDB = new CreateDB();
+//		LoginDB loginDB = new LoginDB();
+//		UpdateStatusAdminDB updateStatusDB = new UpdateStatusAdminDB();
+//		listUsersDB listUsersDB = new listUsersDB();
+//
+//		deleteUserDB deleteUserDB = new deleteUserDB();
+//		insertNewUserDB insertNewUser = new insertNewUserDB();
+//		ListTasksDB listTasks = new ListTasksDB();
 
 		//		System.out.println("Creando base de datos...");
 		//		createDB.crearDB();
@@ -87,9 +87,9 @@ public class testMain {
 //		System.out.println("hoy");
 //			ArrayList<String> arrayListHoy = listTasks.listHoy(2);
 //			arrayListHoy.forEach(System.out::println);
-		System.out.println("semana");
-			ArrayList<String> arrayListSemana = listTasks.listSemana(2);
-			arrayListSemana.forEach(System.out::println);
-	}
-
-}
+//		System.out.println("semana");
+//			ArrayList<String> arrayListSemana = listTasks.listSemana(2);
+//			arrayListSemana.forEach(System.out::println);
+//	}
+//
+//}

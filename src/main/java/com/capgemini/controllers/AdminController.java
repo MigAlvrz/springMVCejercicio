@@ -19,10 +19,20 @@ public class AdminController {
 	
 	ArrayList<User> Users = new ArrayList<User>();
 	
+	/**
+	 * Loads the existing users after the view is made
+	 */
+	
 	@PostConstruct
 	public void startUp() {
 		Users = listUsersDB.listUsers();
 	}
+	
+	/**
+	 * Loads the view
+	 * @param model
+	 * @return
+	 */
 	
 	@RequestMapping(value="", method = RequestMethod.POST)
 	public ModelAndView user(Model model) {
@@ -30,6 +40,12 @@ public class AdminController {
 		mv.setViewName("admin");
 		return mv;
 	}
+	
+/**
+ * returns to home
+ * @param model
+ * @return
+ */
 	
 	@RequestMapping(value="/", method = RequestMethod.POST)
 	public ModelAndView home(Model model) {			
